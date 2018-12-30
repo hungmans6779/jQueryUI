@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Highlight Effect</title>
+  </head>
+  <body>
+    <button id="a">Next</button>
+    <button id="b">Next</button>
+    <button id="c">Next</button>
+    <button id="d">Next</button>
+    <p>Only one of these buttons will take you to the next page, choose wisely (click the hint button for help).
+    <button id="hint">Hint</button>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.highlight.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+			
+				$("#hint").click(function() {
+			
+					//highlight specified element
+					$("#c").effect("highlight", {}, 2000, function() {
+						$("<p>").text("That was the highlight").appendTo("body");
+					});
+				});
+			});
+		</script>
+  </body>
+</html>

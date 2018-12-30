@@ -1,0 +1,92 @@
+0002.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+    <script src="jquery.cookie.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+	$('button').click(function(){
+var myid=$(this).attr('id');
+var cookiename='mycookie';
+var value;
+switch (myid)
+{
+case 'b1':
+	var date = new Date();
+date.setTime(date.getTime() + (60 * 1000));
+$.cookie(cookiename, 'test', { path: '/', expires:date });
+value=$.cookie(cookiename);
+if (value!=null)
+{
+	value='cookie set';
+}
+else{
+value='cookie no work';
+}
+displayit(value);
+return false;
+break;
+case 'b2':
+value=$.cookie(cookiename);
+if (value==null)
+{
+	value='no cookie';
+}
+displayit(value);
+return false;
+break;
+case 'b3':
+$.cookie(cookiename,null, { path: '/'});
+value=$.cookie(cookiename);
+if (value==null)
+{
+	value='Cookie Deleted';
+}
+displayit(value);
+return false;
+break;
+}
+	});
+
+	function displayit(value){
+$('#display').html(value);
+
+	}
+
+  });
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+ #display { 
+    color: white;
+    background-color:#6062b0;
+    width: 150px; 
+    height: 70px;
+    margin: 10px; 
+	padding:10px;
+  }
+  </style>
+		<div class="primarycontent" id=0>
+	<h1>Cookie</h1>
+	<b>Set Cookie/ Get Cookie / Delete Cookie</b><br><br>
+  <div id=display>Cookie Information Here</div>
+  <button id=b1>Set Cookie</button>
+  <button id=b2>Get Cookie</button>
+   <button id=b3>Delete Cookie</button>
+
+
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/jPage.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Customisable Home Page Example</title>
+  </head>
+  <body>
+    <div class="page">
+      <h1>Customisable Home Page Example</h1>
+      <p>Move the boxes around or close them completely. Your choices will be saved and the page will appear as it was when you left it.<p>
+			<a id="restore" href="#" title="Restore Deleted Boxes">Restore Deleted Boxes</a>
+      <div id="sortGrid">
+        <div id="col1" class="col"></div>
+        <div id="col2" class="col"></div>
+        <div id="col3" class="col"></div>
+        <div id="hidden"></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.sortable.js"></script>
+		<script type="text/javascript" src="../jqueryui/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.scale.js"></script>
+    <script type="text/javascript">
+		//function to execute when doc ready
+			$(function() {
+			
+				//object of title names
+				var titles = {};
+				titles.twitter = "Recent Friend Tweets";
+				titles.flickr = "Latest Flickr Image";
+				titles.youtube = "Today's Most Viewed YouTube Video";
+				titles.jquery = "Latest Stories on Learning jQuery";
+				titles.worldNews = "Current World Headlines from BBC News";
+				titles.weather = "Today's Weather for Southampton, UK";
+			
+				//check for cookie
+				if (!$.cookie("columnOrder")) {
+				
+					//arrange default box layout
+					$("<div>").addClass("box").attr("id", "col1_twitter").appendTo("#col1");
+					$("<div>").addClass("title").attr("id", "twitterTitle").text(titles["twitter"]).appendTo("#col1_twitter");
+					$("<div>").attr("title", "Close").addClass("close").appendTo("#twitterTitle");
+					
+					$("<div>").addClass("box").attr("id", "col1_flickr").appendTo("#col1");
+					$("<div>").addClass("title").attr("id", "flickrTitle").text(titles["flickr"]).appendTo("#col1_flickr");
+					$("<div>").attr("title", "Close").addClass("close").appendTo("#flickrTitle");
+					
+					$("<div>").addClass("box").attr("id", "col2_youtube").appendTo("#col2");
+					$("<div>").addClass("title").attr("id", "youtubeTitle").text(titles["youtube"]).appendTo("#col2_youtube");
+					$("<div>").attr("title", "Close").addClass("close").appendTo("#youtubeTitle");
+					
+					$("<div>").addClass("box").attr("id", "col2_jquery").appendTo("#col2");
+					$("<div>").addClass("title").attr("id", "jqueryTitle").text(titles["jquery"]).appendTo("#col2_jquery");
+					$("<div>").attr("title", "Close").addClass("close").appendTo("#jqueryTitle");
+					
+					$("<div>").addClass("box").attr("id", "col3_worldNews").appendTo("#col3");
+					$("<div>").addClass("title").attr("id", "worldNewsTitle").text(titles["worldNews"]).appendTo("#col3_worldNews");
+					$("<div>").attr("title", "Close").addClass("close").appendTo("#worldNewsTitle");
+					
+					$("<div>").addClass("box").attr("id", "col3_weather").appendTo("#col3");
+					$("<div>").addClass("title").attr("id", "weatherTitle").text(titles["weather"]).appendTo("#col3_weather");
+					$("<div>").attr("title", "Close").addClass("close").appendTo("#weatherTitle");		
+					
+					$("#hidden").empty();
+				} else {
+									
+					//split serialized string
+					var cols = $.cookie("columnOrder").split("&");
+					
+					for (var x = 0; x < cols.length; x++) {
+						
+						if(cols[x] != "") {
+							//split the data sting
+							var col = cols[x].split("=")[0];
+							var box = cols[x].split("=")[1];
+							
+							//build current box
+							$("<div>").addClass("box").attr("id", col + "_" + box).appendTo("#" + col);
+							$("<div>").addClass("title").attr("id", box + "Title").text(titles[box]).appendTo("#" + col + "_" + box);
+							$("<div>").attr("title","Close").addClass("close").appendTo("#" + box +"Title");
+						} 
+					}
+				}
+					
+				//get twitter feed
+				$.getJSON("http://pipes.yahoo.com/pipes/Sj5Zqa1q3RGsKtdWQBJ3AQ/run?&_render=JSON&_callback=?", function(data) {
+					for (var x = 0; x < 5; x++) {
+						$("<a />").attr("href", "http://twitter.com/" + data.value.items[x].description.split(":")[0]).text(data.value.items[x].description.split(":")[0]).appendTo("#col1_twitter");
+						$("<p>").text(data.value.items[x].description.split(":")[1]).appendTo($("#twitterTitle").parent());
+					}
+				});
+				
+				//get most recent flickr image
+				$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=?", function(data){
+					$("<a />").attr({"href":data.items[0].link,"id":"imgLink"}).appendTo($("#flickrTitle").parent());
+					$("<img />").attr("src", data.items[0].media.m).appendTo("#imgLink");
+					$("<p>").text("Image name: " + data.items[0].title).appendTo($("#flickrTitle").parent());
+					$("<p>").text("Author: " + data.items[0].author.split("(")[1].replace(")", "")).appendTo($("#flickrTitle").parent());
+				});
+				
+				//get youtube vid
+				$.getJSON("http://pipes.yahoo.com/pipes/Lt4yB_hq3RGqImvDrLQIDg/run?&_render=JSON&_callback=?", function(data) {
+					$("<div>").attr("id", "video").html("<div " + data.value.items[0].description).appendTo($("#youtubeTitle").parent());
+					$("#video div:first").css({width:290,paddingTop:5});
+					$("#video div div:first").css({width:290});
+					$("#video div table tbody tr:last").remove().prev().css({width:300});
+					$("#video div table tbody tr td:last").remove();
+					$("#video div table tbody tr td:last").css({width:153});
+					$("#video div table tbody tr td:last div a").css({fontSize:10});
+					$("#video div table tbody tr td:last div:last").css({fontSize:10});
+					$("#video div table tbody tr:first td div").css({width:130,paddingTop:0});
+				});
+				
+				//get learning jquery feed
+				$.getJSON("http://pipes.yahoo.com/pipes/NjM4mhpr3RGN1_VPPxJ3AQ/run?&_render=JSON&_callback=?", function(data) {
+					for (var y = 0; y < 5; y++) {
+						$("<a />").attr({"id":"articleLink","href":data.value.items[y].link}).text(data.value.items[y].title).appendTo($("#jqueryTitle").parent());
+						$("<p>").text(data.value.items[y].description.split("<")[0]).appendTo($("#jqueryTitle").parent());
+					}
+				});
+				
+				//get bbc news headlines
+				$.getJSON("http://pipes.yahoo.com/pipes/Cm_wLtdq3RGI5r2iBR50VA/run?&_render=JSON&_callback=?", function(data) {
+					for (var x = 0; x < 5; x++) {
+						$("<div>").addClass("headline").attr("id", "headline" + x).appendTo($("#worldNewsTitle").parent());
+						$("<a />").attr("href", data.value.items[x].link).text(data.value.items[x].title).appendTo("#headline" + x);
+						$("<p>").text(data.value.items[x].description).appendTo("#headline" + x);
+					}
+				});
+				
+				//get weather feed
+				$.getJSON("http://pipes.yahoo.com/pipes/ZlCztwxr3RGvr976_g6H4A/run?&_render=JSON&_callback=?", function(data) {
+					$("<div>").attr("id", "weatherData").html(data.value.items[0].description).appendTo($("#weatherTitle").parent());
+					$("#weatherData img").remove();
+					$("#weatherData br:first").remove();
+				});
+							
+				//define config object
+				var sortOpts = {
+					handle: ".title",
+					containment: "#sortGrid",
+					dropOnEmpty: true,
+					connectWith: ["#col1", "#col2", "#col3"],
+					stop: function() {
+						
+						//serialze columns to get latest order
+						var colOrders = $("#col1").sortable("serialize", {key:"col1"}) + "&" + $("#col2").sortable("serialize", {key:"col2"}) + "&" + $("#col3").sortable("serialize", {key:"col3"}) + "&" + $("#hidden").sortable("serialize", {key:"hidden"});
+						
+						//write column order to cookie
+						$.cookie("columnOrder", colOrders, { path:"/", expires:365 });
+					}
+				};
+				
+				//make columns sortable
+				$("#col1").sortable(sortOpts);
+				$("#col2").sortable(sortOpts);
+				$("#col3").sortable(sortOpts);
+				$("#hidden").sortable();
+				
+				//add closed item to hidden col and write new cookie
+				$(".close").click(function() {
+					
+					//shrink the box to nothing then append to closed list
+					$(this).parent().parent().effect("scale", { percent:0 }, "slow", function() {
+						$(this).appendTo("#hidden");
+					});
+					
+					//serialze columns to get latest order
+					var colOrders = $("#col1").sortable("serialize", {key:"col1"}) + "&" + $("#col2").sortable("serialize", {key:"col2"}) + "&" + $("#col3").sortable("serialize", {key:"col3"}) + "&" + $("#hidden").sortable("serialize", {key:"hidden"});
+						
+					//write column order to cookie
+					$.cookie("columnOrder", colOrders, { path:"/", expires:365 });
+				});
+				
+				//restore closed boxes
+				$("#restore").click(function() {
+					
+					$("#hidden").children().each(function() {
+						
+						var col = "";
+						
+						//look for col with space
+						$(".col").each(function() {
+							($(this).children().length < 2) ? col = $(this).attr("id") : null ;
+						});
+						
+						//get id and split to get box name
+						var boxId = $(this).attr("id").split("_")[1];
+						
+						//add box to col
+						$(this).appendTo("#" + col).attr("id", col + "_" + boxId);
+						
+						//serialze columns to get latest order
+						var colOrders = $("#col1").sortable("serialize", {key:"col1"}) + "&" + $("#col2").sortable("serialize", {key:"col2"}) + "&" + $("#col3").sortable("serialize", {key:"col3"}) + "&" + $("#hidden").sortable("serialize", {key:"hidden"});
+						
+						//write column order to cookie
+						$.cookie("columnOrder", colOrders, { path:"/", expires:365 });		
+					});
+				});			
+			});
+		</script>
+  </body>
+</html>

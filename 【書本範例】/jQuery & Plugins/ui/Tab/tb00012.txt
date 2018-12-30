@@ -1,0 +1,105 @@
+tb00012.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.tabs.js"></script>
+<link rel="stylesheet" type="text/css" href="../themes/flora/flora.all.css" media="screen"/>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+   $(document).ready(function(){
+    $("#example > ul").tabs({
+		ajaxOptions: { cache:false }
+		});			
+	  });
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+ <div class="primarycontent" id=0>
+	<h1>$(&quot;#example &gt; ul&quot;).tabs();</h1>
+<b>$(&quot;#example > ul&quot;).tabs(&quot;load&quot;,1); </b><br>
+<div id="example" class="flora">
+            <ul>
+                <li><a href="http://127.0.0.1/open.php?file=z4" title='car-1'><span>Z4 M Coupe</span></a></li>
+                <li><a href="http://127.0.0.1/open.php?file=z41" title='car-2'><span>Z4 M Roadster</span></a></li>
+                <li><a href="http://127.0.0.1/rand.php" title='car-3'><span>Rand A Luck Number</span></a></li>
+            </ul>
+            <div id="car-1">           
+            </div>
+            <div id="car-2">              
+            </div>
+            <div id="car-3"> 
+			
+            </div>
+        </div>
+
+
+
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+rand.php 
+
+<?php
+
+print '
+<script>
+$("#more").click(function(){
+	$("#example > ul").tabs("load",2);
+	});
+</script>';
+echo(rand(10,100));
+echo "<br/>";
+echo "<a href=# id=more >Rand Again</a>";
+?>
+----------------------------------------------------------------------------------------------------
+z4.html
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>Z4M </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <style>
+  img{
+margin:10px;
+
+  }
+  </style>
+ </head>
+
+ <body>
+  <img src=demo4.jpg>Research the new 2008 BMW Z4 M Coupe on Yahoo! Autos. We have the information you need to make a smart buying decision on the 2008 BMW Z4 M Coupe. Check out pictures, prices, options, safety, warranty, features and specs for the 2008 BMW Z4 M Coupe. Read experts and user reviews about the 2008 Coupe and see a list of standard and optional features for the 2008 BMW Z4 M Coupe. You can also get a free dealer quote for the new 2008 BMW Z4 M Coupe and find 2008 BMW Z4 M Coupe dealer listings near you.
+ </body>
+</html>
+----------------------------------------------------------------------------------------------------
+z41.html
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>Z4 M1 </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <style>
+  img{
+margin:10px;
+
+  }
+  </style>
+ </head>
+
+ <body>
+  <img src=demo5.jpg>Research the new 2008 BMW Z4 M Roadster on Yahoo! Autos. We have the information you need to make a smart buying decision on the 2008 BMW Z4 M Roadster. Check out pictures, prices, options, safety, warranty, features and specs for the 2008 BMW Z4 M Roadster. Read experts and user reviews about the 2008 Roadster and see a list of standard and optional features for the 2008 BMW Z4 M Roadster. You can also get a free dealer quote for the new 2008 BMW Z4 M Roadster and find 2008 BMW Z4 M Roadster dealer listings near you.
+ </body>
+</html>
+----------------------------------------------------------------------------------------------------
+

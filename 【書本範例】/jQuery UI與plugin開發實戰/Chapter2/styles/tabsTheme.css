@@ -1,0 +1,3 @@
+.ui-tabs-panel { width:300px; border:1px solid #0000cc; }
+.ui-tabs-nav a, .ui-tabs-nav a span { background:url(../img/tab-sprite.gif) no-repeat; }
+.ui-tabs-nav a { background-position:100% 0%; }

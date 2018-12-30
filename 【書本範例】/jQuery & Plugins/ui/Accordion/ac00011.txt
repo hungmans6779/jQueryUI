@@ -1,0 +1,54 @@
+ac00011.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.accordion.js"></script>
+<link rel="stylesheet" type="text/css" href="../themes/flora/flora.all.css" media="screen"/>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+$("#example").accordion({
+header: "span"
+})
+});
+----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+
+ <div class="primarycontent" id=0>
+	<h1>$(&quot;#example&quot;).accordion();</h1>
+
+<ul id="example" class="ui-accordion-container" style="width: 200px;">
+		<li>
+				<span>News1(span)</span>
+			<div>But there's a catch: taxpayers are already on the hook for the failures of financial institutions, and it's possible that the bill will actually be larger without bailout legislation than with it.  
+
+		</div>
+
+		</li>
+		<li>
+				<span>News2(span)</span>
+			<div>WASHINGTON (AP) -- Top congressional and White House officials, stunned when the House rejected a massive rescue plan for the nation's economy, scrambled to structure a new bailout proposal that would attract reluctant lawmakers and still soothe the unnerved financial markets.
+			</div>
+		</li>
+		<li>
+				<span>News3(span)</span>
+			<div>Collier was on a ventilator for about three weeks and has no memory of the shooting, said Dr. Andy Kerwin, a surgeon for the University of Florida at Shands Jacksonville hospital.
+
+			</div>
+		</li>
+	</ul>
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

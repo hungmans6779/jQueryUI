@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.tabs.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Sortable Tabs Example</title>
+  </head>
+  <body>
+    <ul id="tabs">
+      <li><a href="#0"><span>Sort Tab 1</span></a></li>
+      <li><a href="#1"><span>Sort Tab 2</span></a></li>
+      <li><a href="#2"><span>Sort Tab 3</span></a></li>
+    </ul>
+    <div id="0">The first tab panel</div>
+    <div id="1">The second tab panel</div>
+    <div id="2">The third tab panel</div>    
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+		<script type="text/javascript" src="../jqueryui/ui/ui.tabs.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.sortable.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+				
+				$("#tabs").tabs();		
+			
+				//define config object
+				var sortOpts = {
+					axis: "x",
+					items: "li"		  
+				};
+			
+				//make specified elements sortable
+				$("#tabs").sortable(sortOpts);
+			
+			});
+		</script>
+  </body>
+</html>

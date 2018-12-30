@@ -1,0 +1,60 @@
+sl00010.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.slider.js"></script>
+<link rel="stylesheet" type="text/css" href="../themes/flora/flora.all.css" media="screen"/>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+     $(document).ready(function(){
+    $("#example").slider({
+		min: 300, 
+		max: 800,
+			handles: [{start:300, min: 300, max: 800}],
+			slide: function(e, ui) {
+			var myv = ui.value;
+			$('.display').css({width:myv+'px'});
+		}
+	});
+  });
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+ <style>
+.label-1 { position: absolute; left: 0; top: -1.1em; }
+.label-2 { position: absolute; right: 0; top:-1.1em; }
+
+.display{
+width:300px;
+height:319px;
+margin-bottom:10px;
+background:black url(demo2.jpg) right bottom;
+}
+
+</style>
+ 
+ <div class="primarycontent" id=0>
+	<h1>$(&quot;#example&quot;).slider();</h1>
+<b>slide: function(e, ui)
+</b><br><br>
+
+<div id='example' class='ui-slider-2' style="margin-top:30px;">
+<div class='ui-slider-handle'></div>	
+<span class="label-1">300</span>
+<span class="label-2">800</span>
+</div>
+<div class=display></div>
+</div>
+
+----------------------------------------------------------------------------------------------------
+
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>無標題文件</title>
+  <style type="text/css">
+  <!--
+    .block{
+	  top:5px;
+	  left:5px;
+	  border:1px solid gray;
+	  background-color:#ff0000;
+	  width:130px;
+	  height:130px;
+	  margin:10px;
+	  z-index:100;
+	}
+  
+  
+    .drop{
+	  border:2px #ccc dotted;
+	  width:150px;
+	  height:150px;
+	  margin:10px 10px 10px 10px;
+	  position:absolute;
+	  top:250px;
+	  right:350px
+	  opacity:0.7;	
+	}
+	
+	
+	.myactive{
+	  opacity:0.2;
+	  filter:alpha(opacity:20);
+	}
+	
+	.myhover{
+	  border:5px solid red;
+	}
+  -->
+  </style>
+  <script language="javascript" src="/myjs/jQuery-1.3.2.js"></script>
+  <script language="javascript" src="/myjs/ui/ui.core.js"></script>
+  <script language="javascript" src="/myjs/ui/ui.draggable.js"></script>
+  <script language="javascript" src="/myjs/ui/ui.droppable.js"></script>
+  <script language="javascript">
+  <!--
+     $(document).ready(function(){
+	   $(".block").draggable({helper:"clone"});
+	   
+	   $(".drop").droppable({
+	     accept:".block",
+		 activeClass:'myactive',
+		 hoverClass:'myhover',
+		 drop:function(ev,ui){
+		    ui.draggable.clone().fadeOut("fast",
+			    function(){
+				   $(this).fadeIn("fast");
+				}
+			   ).appendTo($(this).empty());
+		 
+		 }
+	
+	   });	 
+	   
+	 });
+  
+  -->
+  </script>
+  
+</head>
+
+<body>
+  <img src="images/01a.jpg" class="block" />
+  <img src="images/01b.jpg" class="block" />
+  <img src="images/01c.jpg" class="block" />
+  
+  <div class="drop">放入這裡</div>
+</body>
+</html>

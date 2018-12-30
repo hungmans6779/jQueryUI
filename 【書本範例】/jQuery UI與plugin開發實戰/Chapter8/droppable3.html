@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/droppable.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Droppable Example 3</title>
+  </head>
+  <body>
+    <div class="drag" id="drop1"></div>
+    <div class="drag" id="drop2"></div>
+    <div id="target"></div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.draggable.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.droppable.js"></script>
+    <script type="text/javascript">
+	  //function to execute when doc ready
+	  $(function() {
+	  
+	    //make the specified element draggable
+	    $(".drag").draggable();
+		
+			//define config object
+			var dropOpts = {
+				accept: dragEnrol,
+				activeClass: "activated"
+			};
+			
+			//set drop1 as acceptable
+			function dragEnrol(el) {
+				return (el.attr("id") == "drop1") ? true : false;
+			}
+			
+			//make the target droppable
+			$("#target").droppable(dropOpts);
+	  });
+	</script>
+  </body>
+</html>

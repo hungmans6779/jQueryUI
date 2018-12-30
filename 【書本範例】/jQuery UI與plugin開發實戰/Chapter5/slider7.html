@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.slider.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Slider Example 7</title>
+  </head>
+  <body>
+    <div id="mySlider"></div><br>
+    <div id="messageBox"></div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.slider.js"></script>
+    <script type="text/javascript">
+			//define function to be executed on document ready
+			$(function(){
+			
+				//create config object
+				var sliderOpts = {
+					change: function() {
+						var message = "The slider's value has changed";
+					$("#messageBox").text(message);
+					},
+					slide: function() {
+						var message = "The slider is sliding";
+					$("#messageBox").text(message);
+					},
+					start: function() {
+						var message = "The slider has started";
+					$("#messageBox").text(message);
+					},
+					stop: function() {
+						var message = "The slider has stopped";
+					$("#messageBox").text(message);
+					}		
+				};
+				
+				//create the slider
+				$("#mySlider").slider(sliderOpts);
+			});
+		</script>
+  </body>
+</html>

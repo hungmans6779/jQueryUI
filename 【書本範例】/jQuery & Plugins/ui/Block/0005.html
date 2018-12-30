@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "XHTML1-s.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>jQuery Plugins--Block--005</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="../../style.css" />
+  <script src="../js/jquery-1.2.6.pack.js"></script>
+  <script src="jquery.blockUI.js"></script>
+
+<script type="text/javascript" src="../../main.js"></script>
+<script type="text/javascript" src="0005.js"></script>
+<style>
+#result{
+display:none;
+}
+</style>
+
+</head>
+  
+ 
+<body>
+<div id="header">
+
+	<h1>jQuery Plugins</h1>
+	<h2>Block</h2>
+
+</div>
+
+<div id="menu">
+
+	<ul>
+
+		<!--
+				Each list item below represents a tab in the menu. Set the class
+				of any list item to 'active' to make it, well, active.
+		-->
+
+		<li id="first" class="active"><a href="#">Demo</a></li>
+		<li><a href="#">Code</a></li>
+		<li><a href="../index_plugins.html">Index</a></li>
+	
+		
+	</ul>
+
+	<div></div>
+
+</div>
+
+
+<div id="container">
+
+	<div id="primarycontainer">
+				<!-- Demo-->
+
+	<div class="primarycontent" id=0>
+	<h1>Block</h1>
+	<b> 	$.blockUI({
+	message:$(&quot;#result&quot;),
+		css:{border:&quot;5px solid white&quot;,background:&quot;#9d5422&quot;,padding:&quot;10px&quot;,color:&quot;white&quot;}
+	});	
+
+</b><br><br>
+<button id=example>Test Ajax</button>
+<div id=result><p>Count?<button id=yes>Yes</button><button id=no>No</button></p></div>
+
+
+
+</div>
+
+			<!--End Of Demo-->
+  
+		
+					<!--Code-->	
+<div class="primarycontent" id=1>
+	<p>html 內容<br>
+	(與運作有關的是&lt;head&gt;&lt;/head&gt;間引入的js檔案及&lt;!--Demo--&gt;與&lt;!--End Of Demo--&gt;之間的html)  </p>
+	<div id=vs></div>
+<br><br>			
+<p>0005.js 內容</p>
+  <textarea class=mycode>
+   $(document).ready(function() {
+$('#example').click(function(){	
+	$.blockUI({
+	message:$('#result'),
+		css:{border:'5px solid white',background:'#9d5422',padding:'10px',color:'white'}
+	});	
+        }); 
+		$('#yes').click(function(){
+$.ajax({ 
+		type: "POST",
+                url: '/count.php', 
+                cache: false, 
+                success: function(data) { 
+					$('#result').html(data+'<button id=close>Close</button>');
+					$('#close').click(function(){
+					$.unblockUI();
+					});
+					
+                } 
+            }); 
+
+		});
+
+		$('#no').click(function(){
+					$.unblockUI();
+		});
+		
+});
+
+
+
+
+
+
+</textarea><br>	
+		</div>
+	<!--End Of Code-->	
+		
+	</div>
+
+			<!-- Footer-->
+
+
+<div id="footer">
+	&copy; 2008 ezjquery. Created by <a href="http://www.ezjquery.com/">ezjquery</a> 
+
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+#imageSelector { width:690px; height:500px; padding:5px; background:url(../img/image-selector/imageSelectorBG.gif) no-repeat; position:relative; margin:0 auto; }
+#status { width:408px; height:24px; position:absolute; top:17px; left:26px; background:url(../img/image-selector/imageStatus.gif) no-repeat; padding:3px 0 0 8px; font-family:"Trebuchet MS",Trebuchet,Verdana,Helvetica,Arial,sans-serif; font-size:12px; }
+#viewer span, #thumbs span { height:4px; position:absolute; display:block; }
+#viewer { width:408px; height:408px; margin:-4px 10px 5px 0; background:url(../img/image-selector/imageTabsViewer.gif) repeat-y; position:absolute; left:26px; bottom:53px; }
+#viewer .top { width:408px; background:url(../img/image-selector/imageTabsTop.gif) no-repeat; }
+#viewer .bottom { width:408px; background:url(../img/image-selector/imageTabsBottom.gif) no-repeat; bottom:0; }
+#viewer img { position:absolute; left:4px; top:4px; }
+#thumbs { width:220px; height:428px; background:url(../img/image-selector/imageThumbs.gif) repeat-y; position:absolute; top:20px; right:40px; }
+#thumbs img { border:1px solid #000; float:left; margin:0 4px 7px 4px; cursor:pointer; }
+#thumbs .top { width:220px; background:url(../img/image-selector/imageThumbsTob.gif) no-repeat; top:-4px; left:0px; }
+#thumbs .bottom { width:220px; background:url(../img/image-selector/imageThumbsBottom.gif) no-repeat; bottom:-4px; left:0px; }
+#thumbs img.ui-selected { border:1px solid #99ff99; }
+
+p { margin:0px; padding:0px; }
+#tabs { position:absolute; top:25px; left:26px; }
+.ui-tabs-panel { padding:0; border:0; background:transparent; }
+.ui-tabs-nav .ui-tabs-selected a { background-position:100% -26px; }
+.ui-tabs-nav .ui-tabs-selected a span { background-position:0% -26px; height:27px; font-size:11px; }
+.ui-tabs-nav a, .ui-tabs-nav a span { background:url(../img/image-selector/imageTabsSprite.gif) no-repeat; }
+.ui-tabs-nav a span { height:25px; }
+.ui-tabs-nav a:link, .ui-tabs-nav a:visited { color:#000; font-size:8px; }
+.ui-tabs-nav a { background-position:100% 0%; margin:2px 0 0 -2px; }
+.ui-tabs-nav li { position:relative; top:0px; }
+.ui-tabs-nav li.ui-tabs-selected { top:-5px; }

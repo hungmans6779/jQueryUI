@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/transfer.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Transfer Effect</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="productContainer">
+        <img alt="GTX 280" src="img/gcard.jpg"></img><p>BFG GTX 280 OC 1GB GDDR3 Dual DVI HDTV Out PCI-E Graphics Card</p><p id="price">Cost: $350</p><div id="purchase"><button id="buy">Buy</button></div>
+      </div>
+      <div id="basketContainer">
+        <div id="basket"></div>
+        <p>Basket total: <span id="total">0</span></p>
+      </div>
+    </div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.transfer.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+				
+			$("#buy").click(function() {
+				$("#productContainer img").effect("transfer", { to:"#basket" }, 750, function() {
+					var currentTotal = $("#total").text();
+					numeric = parseInt(currentTotal);
+					$("#total").text(numeric + 1);
+					});
+				});
+			});
+		</script>
+  </body>
+</html>

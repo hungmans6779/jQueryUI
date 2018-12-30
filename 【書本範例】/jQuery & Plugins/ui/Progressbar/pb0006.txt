@@ -1,0 +1,73 @@
+pb0006.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.1.6.js"></script>
+<script type="text/javascript" src="../js/ui.progressbar.js"></script>
+<link rel="stylesheet" type="text/css" href="../themes/ui.all.css" media="screen"/>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+   $("#example").progressbar({ 
+	   interval: 2000,
+		   increment:10,
+		   text:'Loading....',
+		   textClass:'loading',
+		   width:200,
+	   		   start:function(e,ui){
+$('.cover').show();
+	   },progress:function(e,ui){
+		   var opanow=(Math.round(ui.percentState)/100);
+		   opanow   = 1-opanow.toFixed(1);
+	$('.cover').css({opacity:opanow,
+filter:"alpha(opacity="+(100-parseInt(ui.percentState))+")"});
+if (ui.percentState==100)
+{
+$('.cover').hide();
+$('#example').hide();
+}	   }
+		   
+		   });
+   $("#example").progressbar("start");
+	  
+  });
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+.loading{
+color:black;
+}
+.cover{
+position:absolute;
+display:none;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+opacity:1;
+filter:alpha(opacity=100);
+}
+#example{
+margin:0 auto;
+}
+ </style>
+	<div class="primarycontent" id=0>
+	<h1>$(&quot;#example&quot;).progressbar(&quot;start&quot;);</h1>
+<b>start: function / progress: function</b><br><br>
+<div class=cover></div>
+<div id="example"></div>
+
+</div>
+
+----------------------------------------------------------------------------------------------------
+
+

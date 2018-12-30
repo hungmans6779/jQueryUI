@@ -1,0 +1,61 @@
+uie0009.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+    <script src="../../js/ui.effect.core.1.6.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+    $("#example").click(function() {
+    $(this).toggleClass('class1', 1500);
+});
+  });
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+ .class0 { 
+	background:#f9d0b4 ;
+	padding:10px;
+    width: 300px; 
+    height: 200px;
+    margin: 10px; 
+	border:1px solid gray;
+	font:12px Arial;
+	overflow:auto;
+  }
+  .class1{
+	background:#b4cef9 ;
+    width: 500px; 
+    height: 200px;
+   font:12px Verdana;
+
+
+  }
+  </style>
+
+				<div class="primarycontent" id=0>
+	<h1>ClassTransitions</h1>
+<b>  $(this).toggleClass(&quot;class1&quot;, 1500);
+</b><br><br>
+  <div id=example class=class0>Oct. 16 (Bloomberg) -- Democrat Barack Obama and Republican John McCain, their final debate behind them, today began a sprint to the Nov. 4 vote by campaigning in the shrinking number of battleground states.
+
+The debate was one of McCain's last opportunities to reverse the momentum that has been running in Obama's direction in recent weeks. Polls conducted immediately after their face-off at Hofstra University in Hempstead, New York, by CBS and CNN showed most viewers judged Obama the winner.
+
+McCain has no choice but to go on the offense' and try to chip away at Obama's lead in a few Democratic-leaning states while holding on to the states President George W. Bush won in 2004, Republican strategist Rich Galen said. ``McCain can't lose one that he should win,'' he said. </div>
+
+</div>
+
+
+
+----------------------------------------------------------------------------------------------------
+
+

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/accordionTheme.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Accordion Widget Example 9</title>
+  </head>
+  <body>
+    <div id="myAccordion">
+      <span class="corner topLeft"></span><span class="corner topRight"></span><span class="corner bottomLeft"></span><span class="corner bottomRight"></span>
+      <div><a href="#">Header 1</a><div>Wow, look at all this content that can be shown or hidden with a simple click!</div></div>
+      <div><a href="#">Header 2</a><div>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean sollicitudin. Sed interdum pulvinar justo. Nam iaculis volutpat ligula. Integer vitae felis quis diam laoreet ullamcorper. Etiam tincidunt est vitae est. Ut posuere, mauris at sodales rutrum, turpis tellus fermentum metus, ut bibendum velit enim eu lectus. Suspendisse potenti.</div></div>
+      <div><a href="#">Header 3</a><div>Donec at dolor ac metus pharetra aliquam. Suspendisse purus. Fusce tempor ultrices libero. Sed quis nunc. Pellentesque tincidunt viverra felis. Integer elit mauris, egestas ultricies, gravida vitae, feugiat a, tellus.</div></div>
+    </div>
+    <button id="enable">Enable!</button><button id="disable">Disable!</button>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.accordion.js"></script>
+    <script type="text/javascript">
+	  //function to execute when doc ready
+	  $(function() {
+	  
+	    //turn specified element into an accordion
+	    $("#myAccordion").accordion();
+		
+		//add click handler for enable button
+		$("#enable").click(function() {
+		  
+		  //enable the accordion
+		  $("#myAccordion").accordion("enable");
+		});
+		
+		//add click handler for disable button
+		$("#disable").click(function() {
+		
+		  //disable the accordion
+		  $("#myAccordion").accordion("disable");
+		});		
+	  });
+	</script>
+  </body>
+</html>

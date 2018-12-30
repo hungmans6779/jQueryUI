@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>無標題文件</title>
+      <style type="text/css">
+	  <!--
+	    .block { 
+          border: 2px solid #EFAA23;
+          background-color: white;
+          width: 150px; 
+          height: 70px;
+          margin: 10px; 	
+       }
+	-->
+	</style>
+    <script language="javascript" src="/test/js/jquery-1.3.2.js"></script>
+    <script language="javascript" src="/test/js/ui/ui.core.js"></script>
+    <script language="javascript" src="/test/js/ui/ui.draggable.js"></script>
+    <script language="javascript">
+	<!--
+	  $(document).ready(function(){
+	    $("#try").draggable({
+		  handle:"div"
+		});
+		
+		$("#try1").draggable({
+		  handle:"div",
+		  helper:"clone"
+		});
+	  })
+	-->
+	</script>
+  </head>
+  
+  <body>
+    A：<div id="try" class="block"><div>按我可以拖曳</div><br /><span >按我不可以拖曳</span></div><br>
+    B：<div id="try1" class="block"><div>按我可以拖曳</div><br /><span >按我不可以拖曳</span></div><br>
+  </body>
+</html>

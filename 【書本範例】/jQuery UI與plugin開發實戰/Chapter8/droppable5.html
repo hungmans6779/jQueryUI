@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/droppableCallbacks.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Droppable Example 5</title>
+  </head>
+  <body>
+    <div id="drag"></div>
+    <div id="target"></div>
+  	<div id="status"></div>
+		<script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.draggable.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.droppable.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+			
+				//make the specified element draggable
+				$("#drag").draggable();
+			
+				//define config object
+				var dropOpts = {
+					accept: "#drag",
+					activate: eventCallback,
+					deactivate: eventCallback,
+					drop: eventCallback,
+					out: eventCallback,
+					over: eventCallback
+				};
+				
+				//define object of status messages
+				var eventMessages = {
+					dropactivate: "A draggable is active",
+					dropdeactivate: "A draggable is no longer active",
+					drop: "An accepted draggable was dropped on the droppable",
+					dropout: "An accepted draggable has been moved out of the droppable",
+					dropover: "An accepted draggable is over the droppable"
+				};
+				
+				//determine event and write status message
+				function eventCallback(e) {
+					var message = $("<p>").attr("id", "message").text(eventMessages[e.type]);
+					$("#status").empty().append(message);
+				}
+					
+				//make the target droppable
+				$("#target").droppable(dropOpts);
+			});
+		</script>
+  </body>
+</html>

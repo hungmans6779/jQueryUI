@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "XHTML1-s.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>jQuery Plugins--Cookie--001</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="../../style.css" />
+  <script src="../js/jquery-1.2.6.pack.js"></script>
+    <script src="jquery.cookie.js"></script>
+
+<script type="text/javascript" src="../../main.js"></script>
+<script type="text/javascript" src="0001.js"></script>
+<style>
+ #display { 
+    color: white;
+    background-color:#6062b0;
+    width: 150px; 
+    height: 70px;
+    margin: 10px; 
+	padding:10px;
+  }
+  </style>
+</head>
+  
+ 
+<body>
+<div id="header">
+
+	<h1>jQuery Plugins</h1>
+	<h2>Cookie</h2>
+
+</div>
+
+<div id="menu">
+
+	<ul>
+
+		<!--
+				Each list item below represents a tab in the menu. Set the class
+				of any list item to 'active' to make it, well, active.
+		-->
+
+		<li id="first" class="active"><a href="#">Demo</a></li>
+		<li><a href="#">Code</a></li>
+		<li><a href="../index_plugins.html">Index</a></li>
+	
+		
+	</ul>
+
+	<div></div>
+
+</div>
+
+
+<div id="container">
+
+	<div id="primarycontainer">
+				<!-- Demo-->
+
+	<div class="primarycontent" id=0>
+	<h1>Cookie</h1>
+	<b>Set Cookie/ Get Cookie / Delete Cookie</b><br><br>
+  <div id=display>Cookie Information Here</div>
+  <button id=b1>Set Cookie</button>
+  <button id=b2>Get Cookie</button>
+   <button id=b3>Delete Cookie</button>
+
+
+</div>
+
+			<!--End Of Demo-->
+  
+		
+					<!--Code-->	
+<div class="primarycontent" id=1>
+	<p>html 內容<br>
+	(與運作有關的是&lt;head&gt;&lt;/head&gt;間引入的js檔案及&lt;!--Demo--&gt;與&lt;!--End Of Demo--&gt;之間的html)  </p>
+	<div id=vs></div>
+<br><br>			
+<p>0001.js 內容</p>
+  <textarea class=mycode>
+ $(document).ready(function(){
+	$('button').click(function(){
+var myid=$(this).attr('id');
+var cookiename='mycookie';
+var value;
+switch (myid)
+{
+case 'b1':
+	
+$.cookie(cookiename, 'test', { path: '/', expires:10 });
+value=$.cookie(cookiename);
+if (value!=null)
+{
+	value='cookie set';
+}
+else{
+value='cookie no work';
+}
+displayit(value);
+return false;
+break;
+case 'b2':
+value=$.cookie(cookiename);
+if (value==null)
+{
+	value='no cookie';
+}
+displayit(value);
+return false;
+break;
+case 'b3':
+$.cookie(cookiename,null, { path: '/'});
+value=$.cookie(cookiename);
+if (value==null)
+{
+	value='Cookie Deleted';
+}
+displayit(value);
+return false;
+break;
+}
+	});
+
+	function displayit(value){
+$('#display').html(value);
+
+	}
+
+  });
+</textarea><br>	
+		</div>
+	<!--End Of Code-->	
+		
+	</div>
+
+			<!-- Footer-->
+
+
+<div id="footer">
+	&copy; 2008 ezjquery. Created by <a href="http://www.ezjquery.com/">ezjquery</a> 
+
+</div>
+</body>
+</html>

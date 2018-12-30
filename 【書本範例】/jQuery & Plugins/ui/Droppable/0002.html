@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "XHTML1-s.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>jQuery Plugins--UI/Droppable---002</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="../../style.css" />
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../../main.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.draggable.js"></script>
+<script type="text/javascript" src="../js/ui.droppable.js"></script>
+<script type="text/javascript" src="dr0002.js"></script>
+
+   <style>
+  
+  .block { 
+   top: 5px;
+   left: 5px;
+   border: 1px solid gray;
+   background-color: #68BFEF;
+   width: 130px; 
+   height: 130px;
+   margin: 10px;
+   z-index: 100;
+}
+ .block1 { 
+   top: 5px;
+   left: 5px;
+   border: 2px solid green;
+   background-color: #68BFEF;
+   width: 130px; 
+   height: 130px;
+   margin: 10px;
+   z-index: 100;
+}
+.drop { 
+   border: 2px #ccc dotted;
+   width:150px;
+	height: 150px;
+   margin: 10px 10px 10px 10px; 
+  position: absolute;
+  top: 205px;
+  right:200px;
+  opacity: 0.7;
+}
+.myactive {
+	opacity: 0.2;
+	filter:alpha(opacity:20);
+}
+.myhover {
+	border: 5px solid red;
+}
+</style>
+</head>
+<body>
+
+<div id="header">
+
+	<h1>jQuery Plugins</h1>
+	<h2>UI / Droppable</h2>
+
+</div>
+
+<div id="menu">
+
+	<ul>
+
+		<!--
+				Each list item below represents a tab in the menu. Set the class
+				of any list item to 'active' to make it, well, active.
+		-->
+
+		<li id="first" class="active"><a href="#">Demo</a></li>
+		<li><a href="#">Code</a></li>
+		<li><a href="index.html">Index</a></li>
+
+		
+	</ul>
+
+	<div></div>
+
+</div>
+
+
+<div id="container">
+
+	<div id="primarycontainer">
+				<!-- Demo-->
+
+	<div class="primarycontent" id=0>
+	<h1>$(&quot;.drop&quot;).droppable();</h1>
+		<b>accept/activeClass/hoverClass/drop</b><br>
+
+
+<img src=../../images/01a.jpg class=block ><img src=../../images/01b.jpg class=block ><br><img src=../../images/01c.jpg class=block1 > 
+
+<div class="drop">放入這裏 </div>
+
+			<!--End Of Demo-->
+  
+		</div>
+					<!--Code-->	
+<div class="primarycontent" id=1>
+	<p>html 內容<br>
+	(與運作有關的是&lt;head&gt;&lt;/head&gt;間引入的js檔案及&lt;!--Demo--&gt;與&lt;!--End Of Demo--&gt;之間的html)  </p>
+	<div id=vs></div>
+<br><br>			
+<p>dr0002.js 內容</p>
+  <textarea class=mycode>
+   $(document).ready(function(){
+    $(".block").draggable({helper: 'clone'});
+	$(".block1").draggable({helper: 'clone',opacity: 0.40});
+
+$(".drop").droppable({
+	/*也可以寫成 accept: ".block,.block1",*/
+	accept: "*",
+	activeClass: 'myactive',
+	hoverClass: 'myhover',
+	drop: function(ev, ui) {
+		ui.draggable.clone().fadeOut("fast", 
+        function() { 
+			$(this).fadeIn("fast");	
+        }).appendTo($(this).empty());	       		
+			
+	}	
+});
+  });
+
+</textarea><br>	
+		</div>
+	<!--End Of Code-->	
+		
+	</div>
+
+			<!-- Footer-->
+
+
+<div id="footer">
+	&copy; 2008 ezjquery. Created by <a href="http://www.ezjquery.com/">ezjquery</a> 
+
+</div>
+
+
+</body>
+</html>

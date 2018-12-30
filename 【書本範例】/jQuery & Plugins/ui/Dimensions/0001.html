@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "XHTML1-s.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>jQuery Plugins--Dimensions--001</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="../../style.css" />
+  <script src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../../main.js"></script>
+<script type="text/javascript" src="0001.js"></script>
+<style>
+ #display { 
+    color: white;
+    background-color:#6062b0;
+    width: 150px; 
+    height: 70px;
+    margin: 10px; 
+	padding:10px;
+  }
+  </style>
+</head>
+  
+ 
+<body>
+<div id="header">
+
+	<h1>jQuery Plugins</h1>
+	<h2>Dimensions</h2>
+
+</div>
+
+<div id="menu">
+
+	<ul>
+
+		<!--
+				Each list item below represents a tab in the menu. Set the class
+				of any list item to 'active' to make it, well, active.
+		-->
+
+		<li id="first" class="active"><a href="#">Demo</a></li>
+		<li><a href="#">Code</a></li>
+		<li><a href="../index_plugins.html">Index</a></li>
+	
+		
+	</ul>
+
+	<div></div>
+
+</div>
+
+
+<div id="container">
+
+	<div id="primarycontainer">
+				<!-- Demo-->
+
+	<div class="primarycontent" id=0>
+	<h1>Dimensions</h1>
+	<b>window & document width/height</b><br><br>
+  <div id=display>Information Here</div>
+  <button id=check1>window width</button>
+  <button id=check2>window height</button>
+  <button id=check3>document width</button>
+  <button id=check4>document height</button>
+
+
+</div>
+
+			<!--End Of Demo-->
+  
+		
+					<!--Code-->	
+<div class="primarycontent" id=1>
+	<p>html 內容<br>
+	(與運作有關的是&lt;head&gt;&lt;/head&gt;間引入的js檔案及&lt;!--Demo--&gt;與&lt;!--End Of Demo--&gt;之間的html)  </p>
+	<div id=vs></div>
+<br><br>			
+<p>0001.js 內容</p>
+  <textarea class=mycode>
+ $(document).ready(function(){
+	$('button').click(function(){
+var myid=$(this).attr('id');
+var value;
+switch (myid)
+{
+case 'check1':value=$(window).width();displayit(value);
+break;
+case 'check2':value=$(window).height();displayit(value);
+break;
+case 'check3':value=$(document).width();displayit(value);
+break;
+case 'check4':value=$(document).height();displayit(value);
+break;
+
+}
+	});
+
+	function displayit(value){
+$('#display').html(value);
+
+	}
+
+  });
+</textarea><br>	
+		</div>
+	<!--End Of Code-->	
+		
+	</div>
+
+			<!-- Footer-->
+
+
+<div id="footer">
+	&copy; 2008 ezjquery. Created by <a href="http://www.ezjquery.com/">ezjquery</a> 
+
+</div>
+</body>
+</html>

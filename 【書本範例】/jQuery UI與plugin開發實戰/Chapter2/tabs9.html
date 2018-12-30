@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.tabs.css">
+    <link rel="stylesheet" type="text/css" href="styles/tabsTheme2.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Tabs Example 9</title>
+  </head>
+  <body>
+    <div>
+      <ul id="myTabs">
+        <li><a href="#0"><span>Tab 1</span></a></li>
+        <li><a href="#1"><span>Tab 2</span></a></li>
+      </ul>
+      <div id="0">This is the content panel linked to the first tab, it is shown by default.</div>
+      <div id="1">This content is linked to the second tab and will be shown when its tab is clicked.</div>
+    </div>
+    <label>Enter a tab to remove:</label><input id="indexNum"><button id="remove">Remove!</button><br><br>
+    <button id="add">Add a new tab!</button><br><br>
+    <div id="newTab" class="ui-tabs-panel ui-tabs-hide">This content will be part of the tabs when the above button is clicked!</div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.tabs.js"></script>
+    <script type="text/javascript">
+			//define function to be executed on document ready
+			$(function(){
+					
+				//create the tabs
+				$("#myTabs").tabs();
+			
+				//add click handler for 'remove' button
+				$("#remove").click(function() {
+			
+					//get the index to remove
+					var indexNumber = $("#indexNum").val() - 1;
+					
+					//remove the tab
+					$("#myTabs").tabs("remove", indexNumber);
+				
+				});
+			
+				//add click handler for 'add' button
+				$("#add").click(function() {
+					
+					//define tab label
+					var newLabel = "A New Tab!"
+					
+					//add the new tab
+					$("#myTabs").tabs("add", "#newTab", newLabel);
+				});
+			});
+		</script>
+  </body>
+</html>

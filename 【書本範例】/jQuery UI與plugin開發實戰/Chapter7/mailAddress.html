@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/default/ui.all.css">
+		<link rel="stylesheet" type="text/css" href="styles/mailAddress.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Auto Complete Email Field Example with JSON!</title>
+  </head>
+  <body>
+		<div id="mailContainer">
+    	<label>To:</label><textarea id="address" cols="10" rows="1"></textarea>
+			<label>Subject:</label><input type="text">
+			<label>Message:</label><textarea cols="10" rows="10"></textarea>
+		</div>
+		<script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.autocomplete.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+				
+				//get JSON
+				//$.getJSON("http://localhost/jqueryui/contacts.php?jsoncallback=?", function(data) {
+				$.getJSON("http://www.danwellman.co.uk/jqueryui/contacts.php?jsoncallback=?", function(data) {
+					
+					//create arrays for data
+					var names = [];
+					var mails = [];
+					
+					//populate arrays
+					for (var x = 0; x < data.contacts.length; x++) {
+					
+						names.push(data.contacts[x].name);
+						mails.push(data.contacts[x].mail);
+					}
+					
+					//add mail address to selected name
+					function mailMatch(data, i, max) {
+						
+						return data + " (" + mails[i - 1] + ")"						
+					}
+					
+					//create config
+					var autocompOpts = {
+						data:names,
+						width:706,
+						multiple:true,
+						multipleSeparator:"; ",
+						formatMatch:mailMatch
+					};
+					
+					//turn specified element into auto complete
+					$("#address").autocomplete(autocompOpts);
+				});
+	    });
+	  </script>
+  </body>
+</html>

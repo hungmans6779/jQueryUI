@@ -1,0 +1,73 @@
+0005.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+  <script src="jquery.blockUI.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+    $(document).ready(function() {
+$('#example').click(function(){	
+	$.blockUI({
+	message:$('#result'),
+		css:{border:'5px solid white',background:'#9d5422',padding:'10px',color:'white'}
+	});	
+        }); 
+		$('#yes').click(function(){
+$.ajax({ 
+		type: "POST",
+                url: '/count.php', 
+                cache: false, 
+                success: function(data) { 
+					$('#result').html(data+'<button id=close>Close</button>');
+					$('#close').click(function(){
+					$.unblockUI();
+					});
+					
+                } 
+            }); 
+
+		});
+
+		$('#no').click(function(){
+					$.unblockUI();
+		});
+		
+});
+
+
+
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+#result{
+display:none;
+}
+</style>
+<div class="primarycontent" id=0>
+	<h1>Block</h1>
+	<b> 	$.blockUI({
+	message:$(&quot;#result&quot;),
+		css:{border:&quot;5px solid white&quot;,background:&quot;#9d5422&quot;,padding:&quot;10px&quot;,color:&quot;white&quot;}
+	});	
+
+</b><br><br>
+<button id=example>Test Ajax</button>
+<div id=result><p>Count?<button id=yes>Yes</button><button id=no>No</button></p></div>
+
+
+
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

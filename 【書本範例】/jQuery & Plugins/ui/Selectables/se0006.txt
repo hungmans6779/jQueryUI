@@ -1,0 +1,137 @@
+se0006.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.selectable.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+   $(document).ready(function(){
+
+	 var selected;
+	 var temp='';
+
+	$("#myList").selectable({
+	stop: function(ev, ui) {
+     selected = $(".ui-selected", this); 
+	 var check='';
+	temp='';
+	$(selected).each(function(){
+	 check=$(this).html();
+	if (check!='')
+	{
+		temp=temp+$(this).html();
+	}
+});
+var org=$('.drop').html();
+temp=org+temp;
+$('.drop').html(temp);
+sortit();
+	
+  }
+	});
+
+	$('#cs').click(function(){
+selected='';
+$("#myList li").removeClass('ui-selected');
+	});
+
+  $('#cd').click(function(){
+$('.drop').empty();
+});
+///////////////// sort it //////////////////////////////////
+function unique(a) {
+	tmp = new Array(0);
+	for(i=0;i<a.length;i++){
+		if(!contains(tmp, a[i])){
+			tmp.length+=1;
+			tmp[tmp.length-1]=a[i];
+		}
+	}
+	return tmp;
+}
+
+function contains(ar, e) {
+	for(j=0;j<ar.length;j++) if(ar[j]==e) return true;
+	return false;
+}
+
+
+
+
+		function sortit(){
+		var mylink = new Array();
+	$('.drop img').each(function(e){
+				mylink[e]='<img src='+$(this).attr('src')+' class=block>';
+				});
+mylink=unique(mylink);
+$('.drop').empty();
+$(mylink).each(function(e){
+$('.drop').append(mylink[e]);
+	});
+		}
+
+    });
+
+
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+ <style>
+ ul#myList {
+ list-style: none;
+  }
+  
+ul#myList  li.ui-selected {
+border: 2px solid red;
+}
+ul#myList li.ui-selecting { 
+border: 1px solid black;
+margin:0;
+}
+ul#myList  li,ul#myList  li img { 
+width:100px;
+height:75px;
+}
+.drop { 
+   border: 2px #ccc dotted;
+   width:160px;
+	height: 600px;
+	overflow: auto;
+   margin: 10px 10px 10px 10px; 
+  position: absolute;
+  top: 205px;
+  right:200px;
+  opacity: 0.7;
+}
+.drop img{
+width:100px;
+height:75px;
+}
+</style>
+
+<div class="primarycontent" id=0>
+	<h1>$(&quot;#myList&quot;).selectable();</h1>
+	<button id=cs>Clear Selected</button><button id=cd>Clear Drop</button>
+
+<ul id="myList">
+	    <li>Item 1</li>
+	    <li>Item 2</li>
+	    <li>Item 3</li>
+	    <li>Item 4</li>
+</ul>
+</div>
+<div class="drop"></div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

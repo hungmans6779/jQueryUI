@@ -1,0 +1,4 @@
+.ui-slider, .ui-slider-1 { background:url(../img/slider/slider-bg-vert.png) no-repeat 6px 0px; }
+.ui-slider { height:200px; width:23px; }
+.ui-slider-handle { background:url(../img/slider/slider-handle-vert.gif) no-repeat; height:12px; width:23px;}
+

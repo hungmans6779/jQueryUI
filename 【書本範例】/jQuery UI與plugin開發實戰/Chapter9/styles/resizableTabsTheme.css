@@ -1,0 +1,6 @@
+.ui-tabs-panel { border:1px solid #0000cc; background:#d8d8f7; }
+.ui-tabs-nav a, .ui-tabs-nav a span { background:url(../img/tab-sprite.gif) no-repeat; }
+.ui-tabs-nav a { background-position:100% 0%; }
+.ui-resizable-e { background:url(../img/resizable/tabResizable-e.gif) repeat right center; width:7px; }
+.ui-resizable-s { background:url(../img/resizable/tabResizable-s.gif) repeat center top; height:7px; }
+.ui-resizable-se { background:url(../img/resizable/tabResizable-se.gif) repeat 0%; }

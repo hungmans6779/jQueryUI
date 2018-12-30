@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/drop.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Drop Effect</title>
+  </head>
+  <body>
+    <div id="container">
+      <p>Lorem <a id="link1" href="#" title="This is a link">ipsum</a> dolor sit amet, consectetuer adipiscing elit. Sed dapibus libero non lacus. Morbi <a id="link2" href="#" title="This is another link">sagittis</a> ante vitae tortor. Quisque quis neque vel augue laoreet consectetuer. Vestibulum tempor. Morbi non <a id="link3" href="#" title="This is the third link">justo</a>. Aliquam ullamcorper, enim sed ultricies accumsan, ipsum mauris eleifend urna, in ullamcorper nisl urna at erat.</p>
+    </div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.drop.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+							
+				//make tooltip on mouseover
+				$("#container a").mouseover(function(e) {
+								
+					//create tooltip
+					$("<div>").text($(this).attr("title")).addClass("tooltip").css({left:e.pageX, top:(e.pageY - 40)}).appendTo($("body"));
+					
+					//set timeout to show tooltip
+					tip = setTimeout("$('.tooltip').show('drop', { direction:'up' }); ", 750);
+					
+					//supress title
+					$(this).attr("title", "");
+					
+				});
+				
+				//make tip track with pointer
+				$("#container a").mousemove(function(e) {
+					$(".tooltip").css({'left':e.pageX, 'top':e.pageY - 35});
+				});	
+				
+				//remove tooltip on mouseout
+				$("#container a").mouseout(function(e) {
+					
+					clearTimeout(tip);
+					
+					//put title text back
+					$("#" + e.target.id).attr("title", $(".tooltip").text());
+					
+					//hide and remove tooltip
+					$(".tooltip").remove();
+					$("#fxWrapper").remove();
+				});
+			});
+		</script>
+  </body>
+</html>

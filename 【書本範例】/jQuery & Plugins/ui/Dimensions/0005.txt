@@ -1,0 +1,68 @@
+0005.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+	$('button').click(function(){
+var myid=$(this).attr('id');
+var value;
+switch (myid)
+{
+	case 'check1':value=$('#display').position();displayit(value);
+break;
+case 'check2':value=$('#display1').position();displayit(value);
+break;
+}
+	});
+	function displayit(value){
+$('#info').html('top:'+value.top+' left:'+value.left);
+	}
+  });
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+ #display { 
+    color: white;
+    background-color:#6062b0;
+    width: 200px; 
+    height: 150px;
+    margin: 10px; 
+	padding:10px;
+	border:2px solid black;
+  }
+   #display1 { 
+    color: white;
+    background-color:red;
+    width: 100px; 
+    height: 50px;
+    padding:10px;
+	border:2px solid black;
+  }
+  </style>
+  <div class="primarycontent" id=0>
+	<h1>Dimensions</h1>
+	<b>#display & #display1 position()</b><br><br>
+	<div id=info></div>
+  <div id=display>display<div id=display1>display1</div></div>
+  <button id=check1>#display position</button>
+  <button id=check2>#display1 position</button><br>
+  
+  
+  
+
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

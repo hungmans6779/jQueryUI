@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.tabs.css">
+    <link rel="stylesheet" type="text/css" href="styles/flickrTabTheme.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI AJAX Tabs Example</title>
+  </head>
+  <body>
+    <div>
+      <ul id="myTabs">
+        <li><a href="#0"><span>Nebula Information</span></a></li>
+        <li><a href="#flickr"><span>Images</span></a></li>
+      </ul>
+      <div id="0">
+        <p>A nebulae is an interstellar cloud of dust, hydrogen gas and plasma. It is the first stage of a star's cycle. In these regions the formations of gas, dust and other materials 'clump' together to form larger masses, which attract further matter, and eventually will become big enough to form stars. The remaining materials are then believed to form planets, and other planetary system objects. Many nebulae form from the gravitational collapse of diffuse gas in the interstellar medium or ISM. As the material collapses under its own weight, massive stars may form in the center, and their ultraviolet radiation ionises the surrounding gas, making it visible at optical wavelengths.</p>
+      </div>
+      <div id="flickr"></div>
+    </div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.tabs.js"></script>
+    <script type="text/javascript">
+			//define function to be executed on document ready
+			$(function(){
+				
+				//create config object
+				var tabOpts = {
+					select: function(event, ui) {
+						
+						//see if flickr tab selected
+						ui.tab.toString().indexOf("flickr") != -1 ? getData() : null ;
+					
+						//define getData function
+						function getData() {
+						
+							//get rid of any previous images
+							$("#flickr").empty();
+						
+							//get JSON feed from flickr
+							$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags=nebula&format=json&jsoncallback=?", function(data) {
+						
+								//iterate over each object in JSON feed
+								$.each(data.items, function(i,item){
+								
+									//create and format new image
+									$("<img/>").attr("src", item.media.m).appendTo("#flickr").height(100).width(100).css({
+										marginRight:"5px",
+										marginBottom:"5px",
+										borderColor:"#000000",
+										borderStyle:"solid",
+										borderWidth:"1px"
+									});
+							
+									//stop after 6 images
+									if (i == 5) return false;
+								}); 
+							});
+						}
+					}
+				}
+					
+				//create the tabs
+				$("#myTabs").tabs(tabOpts);
+	  	});
+		</script>
+  </body>
+</html>

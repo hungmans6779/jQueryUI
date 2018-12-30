@@ -1,0 +1,4 @@
+#selectables div { width:160px; height:25px; padding:5px 0 0 10px; border:1px solid #000; margin:10px 0 0 10px; }
+#selectables div.ui-selecting { border:1px solid #66CC00; }
+#selectables div.ui-selected { background:#66CC00; }
+.unselectable { background-color:#999999; color:#666666; }

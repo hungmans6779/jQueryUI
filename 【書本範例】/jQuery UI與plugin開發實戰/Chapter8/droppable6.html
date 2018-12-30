@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/droppableNesting.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Droppable Example 6</title>
+  </head>
+  <body>
+    <div id="drag"></div>
+    <div class="target" id="outer">
+      <div class="target" id="inner"></div>
+    </div>
+    <div id="status"></div>
+		<script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.draggable.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.droppable.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+			
+				//set opacity of targets
+				$(".target").css({ opacity:"0.5" });
+			
+				//make the specified element draggable
+				$("#drag").draggable();
+			
+				//define config object
+				var dropOpts = {
+					accept:"#drag",
+					drop:dropCallback,
+					greedy:true
+				};
+				
+				//determine event and write status message
+				function dropCallback(e) {
+					var message = $("<p>").attr("id", "message").text("The firing droppable was " + e.target.id);
+					$("#status").append(message);
+				}
+					
+				//make the target droppable
+				$(".target").droppable(dropOpts);
+			});
+		</script>
+  </body>
+</html>

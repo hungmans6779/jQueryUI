@@ -1,0 +1,47 @@
+uie0002.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+    <script src="../../js/ui.effect.core.1.6.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+    $("#example").toggle(function() {
+    $(this).animate({ borderBottomColor: "#fbad06" }, 1500);
+},function() {
+    $(this).animate({ borderBottomColor: "#8a6108" }, 1000);
+});
+
+  });
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+ #example { 
+    color: white;
+    background-color: #86a2db;
+    width: 150px; 
+    height: 70px;
+    margin: 10px; 
+	padding:10px;
+	border:10px solid #8a6108;
+  }
+  </style>
+	<div class="primarycontent" id=0>
+	<h1>Coloranimations</h1>
+<b>$(this).animate({ borderBottomColor: &quot;#fbad06&quot; }, 1500);</b><br><br>
+  <div id=example> Click me</div>
+
+</div>
+
+----------------------------------------------------------------------------------------------------
+
+

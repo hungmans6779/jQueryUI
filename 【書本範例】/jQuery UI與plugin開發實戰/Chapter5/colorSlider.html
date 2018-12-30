@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.slider.css">
+		<link rel="stylesheet" type="text/css" href="styles/colorSliderTheme.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>jQuery UI Color Slider Example</title>
+	</head>
+	<body>
+		<div id="container">
+			<div id="rSlider"></div><br>
+			<div id="gSlider"></div><br>
+			<div id="bSlider"></div>
+			<input id="output" type="text">
+		</div>
+		<div id="colorBox"></div>
+		<script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.slider.js"></script>
+		<script type="text/javascript">
+			//define function to be executed on document ready
+			$(function(){
+			
+				//initialize values
+				var r = 0;
+				var g = 0;
+				var b = 0;
+				
+					//create config obj
+				var sliderOpts = {
+					max: 255,
+					steps: 255,
+					slide: function(e, ui) {
+						var val = $(this).slider("value");
+						var id = $(this).attr("id");
+						
+						if (id == "rSlider") {
+							r = val;
+						} else if (id == "gSlider") {
+							g = val;
+						} else {
+							b = val;
+						}
+						
+						var rgbString = "rgb(" + r + "," + g + "," + b + ")";
+									
+						$("#colorBox").css({
+							backgroundColor:rgbString
+						});
+						
+						$("#output").val(rgbString);
+					}		
+				};
+		
+				//create the dialog
+				$("#rSlider, #gSlider, #bSlider").slider(sliderOpts);
+		
+			});
+		</script>
+  </body>
+</html>

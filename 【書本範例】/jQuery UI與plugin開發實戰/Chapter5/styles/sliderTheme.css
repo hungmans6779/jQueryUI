@@ -1,0 +1,4 @@
+/* slider theme */
+.background-div { background:url(../img/slider/slider_outerbg.gif) no-repeat; height:50px; width:217px; padding:36px 0 0 24px; }
+.ui-slider, .ui-slider-1 { background:url(../img/slider/slider_bg.gif) no-repeat; width:184px; height:23px; position:relative; left:4px; top:4px; }
+.ui-slider-handle { background:url(../img/slider/slider_handle.gif) no-repeat; width:14px; height:30px; top:-4px; }

@@ -1,0 +1,83 @@
+rs00012.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.resizable.js"></script>
+<link rel="stylesheet" type="text/css" href="../themes/flora/flora.resizable.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="../themes/flora/functional_demos.css" media="screen"/>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+$("#rs").resizable({ 
+   handles: "all", 
+    start: function(e, ui) { 
+        $('.hide').slideDown().html("開始縮放"); 
+    }, 
+	resize: function(e, ui) { 
+        $('.hide1').slideDown(); 
+    },
+    stop: function(e, ui) { 
+		$('.hide').html("結束縮放").slideUp('slow'); 
+                $('.hide1').slideUp('slow');     }
+    
+    });
+   $("#img").resizable({ 
+   handles: "all", 
+    start: function(e, ui) { 
+        $('.hide').slideDown().html("開始縮放"); 
+    }, 
+	resize: function(e, ui) { 
+        $('.hide1').slideDown(); 
+    },
+    stop: function(e, ui) { 
+		$('.hide').html("結束縮放").slideUp('slow'); 
+                $('.hide1').slideUp('slow'); 
+    }
+    });
+   
+});
+----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+.resizable {
+	width: 100px; height: 100px;
+	border: 1px solid #000;
+	padding: 10px;
+	font-size: 12px;
+}
+.hide,.hide1{
+display:none;
+background-color:red;
+width:400px;
+padding:10px;
+color:white
+}
+.hide1{
+background-color:green;
+width:100px;
+}
+</style>
+ 
+
+	<div class="primarycontent" id=0>
+	<h1>$(&quot;#rs&quot;).resizable();</h1>
+	<b>handles: &quot;all&quot; / start / resize / stop  </b><br>
+	<div class=hide></div><br>
+	<div class=hide1>縮放中............</div><br>
+<div id="rs" class="resizable">縮放我!</div><br>
+<img src=../../images/02.jpg id=img width="200px" height="133px">
+
+</div>
+
+----------------------------------------------------------------------------------------------------
+
+

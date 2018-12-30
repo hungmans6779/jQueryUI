@@ -1,0 +1,6 @@
+.container { position:relative; width:234px; height:211px; background:url(../img/placeholder.png) no-repeat; }
+.image { position:relative; top:11px; left:11px; margin-bottom:10px; }
+.ui { position:relative; border:2px solid #666666;  left:11px; width:200px; }
+.close { font-family:verdana; font-size:80%; font-weight:bold; text-align:center; text-decoration:none; background:url(../img/close.gif) no-repeat; height:20px; width:60px; position:relative; left:135px; top:2px; display:block; }
+.close:hover { background:url(../img/close_over.gif) no-repeat; }
+img { border:2px solid #666666; }

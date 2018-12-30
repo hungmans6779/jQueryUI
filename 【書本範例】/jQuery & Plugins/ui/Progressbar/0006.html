@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "XHTML1-s.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>jQuery Plugins--UI/Progressbar--006</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="../../style.css" />
+<link rel="stylesheet" type="text/css" href="../themes/ui.all.css" media="screen"/>
+
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../../main.js"></script>
+<script type="text/javascript" src="../js/ui.core.1.6.js"></script>
+<script type="text/javascript" src="../js/ui.progressbar.js"></script>
+<script type="text/javascript" src="pb0006.js"></script>
+ <style>
+.loading{
+color:black;
+}
+.cover{
+position:absolute;
+display:none;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+opacity:1;
+filter:alpha(opacity=100);
+}
+#example{
+margin:0 auto;
+}
+ </style>
+</head>
+  
+ 
+<body>
+<div id="header">
+
+	<h1>jQuery Plugins</h1>
+	<h2>UI / Progressbar</h2>
+
+</div>
+
+<div id="menu">
+
+	<ul>
+
+		<!--
+				Each list item below represents a tab in the menu. Set the class
+				of any list item to 'active' to make it, well, active.
+		-->
+
+		<li id="first" class="active"><a href="#">Demo</a></li>
+		<li><a href="#">Code</a></li>
+		<li><a href="index.html">Index</a></li>
+	
+		
+	</ul>
+
+	<div></div>
+
+</div>
+
+
+<div id="container">
+
+	<div id="primarycontainer">
+				<!-- Demo-->
+
+	<div class="primarycontent" id=0>
+	<h1>$(&quot;#example&quot;).progressbar(&quot;start&quot;);</h1>
+<b>start: function / progress: function</b><br><br>
+<div class=cover></div>
+<div id="example"></div>
+
+</div>
+
+			<!--End Of Demo-->
+  
+		
+					<!--Code-->	
+<div class="primarycontent" id=1>
+	<p>html 內容<br>
+	(與運作有關的是&lt;head&gt;&lt;/head&gt;間引入的js檔案及&lt;!--Demo--&gt;與&lt;!--End Of Demo--&gt;之間的html)  </p>
+	<div id=vs></div>
+<br><br>			
+<p>pb0006.js 內容</p>
+  <textarea class=mycode>
+  $(document).ready(function(){
+   $("#example").progressbar({ 
+	   interval: 2000,
+		   increment:10,
+		   text:'Loading....',
+		   textClass:'loading',
+		   width:200,
+	   		   start:function(e,ui){
+$('.cover').show();
+	   },progress:function(e,ui){
+		   var opanow=(Math.round(ui.percentState)/100);
+		   opanow   = 1-opanow.toFixed(1);
+	$('.cover').css({opacity:opanow,
+filter:"alpha(opacity="+(100-parseInt(ui.percentState))+")"});
+if (ui.percentState==100)
+{
+$('.cover').hide();
+$('#example').hide();
+}	   }
+		   
+		   });
+   $("#example").progressbar("start");
+	  
+  });
+
+
+</textarea><br>	
+		</div>
+	<!--End Of Code-->	
+		
+	</div>
+
+			<!-- Footer-->
+
+
+<div id="footer">
+	&copy; 2008 ezjquery. Created by <a href="http://www.ezjquery.com/">ezjquery</a> 
+
+</div>
+</body>
+</html>

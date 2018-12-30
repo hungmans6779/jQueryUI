@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.datepicker.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Date Picker Example 12</title>
+		<style type="text/css">
+	  	input { width:180px; }
+		</style>
+  </head>
+  <body>
+    <div class="row"><label>Enter a date: </label><input id="date"></div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.datepicker.js"></script>
+    <script type="text/javascript">
+			//define function to be executed on document ready
+			$(function(){
+			
+				//create config object
+				var pickerOpts = {
+					rangeSelect: true,
+					rangeSeparator: " to "
+				};
+				
+				//create the date picker
+				$("#date").datepicker(pickerOpts);	
+			});
+		</script>
+  </body>
+</html>

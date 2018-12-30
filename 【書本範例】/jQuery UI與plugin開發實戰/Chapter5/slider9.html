@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.slider.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Slider Example 9</title>
+  </head>
+  <body>
+    <button id="move">Set to 50</button><br>
+    <div id="mySlider"></div><br>
+    <div id="messageBox"></div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.slider.js"></script>
+    <script type="text/javascript">
+	  //define function to be executed on document ready
+	  $(function(){
+	  
+	    //create config object
+	    var sliderOpts = {
+		  change: function() {
+		    
+			//get the new value
+			var val = $(this).slider("value");
+						
+		    var message = "The slider's value has changed and is now " + val;
+			$("#messageBox").text(message);
+		  },
+		  steps: 100	
+		};
+	    
+	    //create the slider
+		$("#mySlider").slider(sliderOpts);
+		
+		//define click handler for button
+		$("#move").click(function(e, ui){
+		
+		  //set slider value
+		  $("#mySlider").slider("moveTo", 50);
+		  
+		});
+	  });
+	</script>
+  </body>
+</html>

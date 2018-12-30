@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/sortable.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Sortable Example 7</title>
+  </head>
+  <body>
+    <div id="container">
+			<p>Put these DJs in order of your preference:</p>
+			<div id="sortables">
+				<div>BT</div>
+				<div>Sasha</div>
+				<div>John Digweed</div>
+				<div>Pete Tong</div>
+				<div>James Zabiela</div>
+			</div>
+		</div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.sortable.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+			
+				//define config object
+				var sortOpts = {
+					helper: helperMaker
+				};
+				
+				//define function that returns helper element
+				function helperMaker(e, ui) {
+					
+					return $("<div>").css({
+						border:"4px solid #cccccc",
+					 	opacity:"0.5"
+					});
+				}
+	
+			
+				//make specified element sortable
+				$("#sortables").sortable(sortOpts);
+			});
+		</script>
+  </body>
+</html>

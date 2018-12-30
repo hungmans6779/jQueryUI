@@ -1,0 +1,93 @@
+0001.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+    <script src="jquery.easing.1.3.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+	$('#display').click(function(){
+$(this).animate({height:200}, {duration: 1000, easing:'easeInQuad'}).animate({height:100}, {duration: 1000, easing:'easeOutQuad'});
+	});
+  });
+
+  /*
+swing
+easeInQuad
+easeOutQuad
+easeInOutQuad
+easeInCubic
+easeOutCubic
+easeInOutCubic
+easeInQuart
+easeOutQuart
+easeInOutQuart
+easeInQuint
+easeOutQuint
+easeInOutQuint
+easeInSine
+easeOutSine
+easeInOutSine
+easeInExpo
+easeOutExpo
+easeInOutExpo
+easeInCirc
+easeOutCirc
+easeInOutCirc
+easeInElastic
+easeOutElastic
+easeInOutElastic
+easeInBack
+easeOutBack
+easeInOutBack
+easeInBounce
+easeOutBounce
+easeInOutBounce
+<script src="jquery.easing.compatibility.js"></script>
+easeIn = easeInQuad
+easeOut = easeOutQuad
+easeInOut = easeInOutQuad
+expoin = easeInExpo
+expoout = easeOutExpo
+expoinout = easeInOutExpo
+bouncein = easeInBounce
+bounceout = easeOutBounce
+bounceinout = easeInOutBounce
+elasin = easeInElastic
+elasout = easeOutElastic
+elasinout = easeInOutElastic
+backin = easeInBack
+backout = easeOutBack
+backinout = easeInOutBack
+
+*/
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+ #display { 
+    color: white;
+    background-color:#6062b0;
+    width: 150px; 
+    height: 70px;
+    margin: 10px; 
+	padding:10px;
+  }
+  </style>
+			<div class="primarycontent" id=0>
+	<h1>Easing</h1>
+	<b></b><br><br>
+  <div id=display>Click Me</div>
+  </div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

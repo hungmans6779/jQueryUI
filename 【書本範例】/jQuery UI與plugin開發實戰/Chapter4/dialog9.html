@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.dialog.css">
+		<link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.resizable.css">
+    <link rel="stylesheet" type="text/css" href="styles/dialogTheme.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Dialog Example 9</title>
+  </head>
+  <body>
+    <p>Answer the opinion poll:</p>
+    <button id="poll">Poll</button>
+    <div id="myDialog" class="flora" title="This is the title">
+      <p>Is jQuery UI the greatest JavaScript extensions library in the universe?</p>
+      <label for="yes">Yes!</label><input type="radio" id="yes" value="yes" name="question"><br>
+      <label for="no">No!</label><input type="radio" id="no" value="no" name="question">
+    </div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.dialog.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.resizable.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.draggable.js"></script>
+    <script type="text/javascript">
+			//define function to be executed on document ready
+			$(function(){
+			
+				//define cancel button function
+				var cancel = function() {
+			
+				//close the dialog
+				$("#myDialog").dialog("close");
+				
+				}
+					
+				//define done button function
+				var getResponse = function(){
+				
+					var answer;
+					$("input").each(function(){
+					
+						(this.checked == true) ? answer = $(this).val() : null;
+					
+					});
+					
+					$("<p>").text("Thanks for selecting " + answer).insertAfter($("#poll"));
+					$("#myDialog").dialog("close");
+				
+				}
+				
+				//define config object
+				var dialogOpts = {
+					modal: true,
+					overlay: {
+						background: "url(img/modal.png) repeat"
+					},
+					buttons: {
+						"Done": getResponse,
+						"Cancel": cancel
+					},
+					autoOpen: false
+					
+				};
+				
+				//create the dialog
+				$("#myDialog").dialog(dialogOpts);
+				
+				//define click handler for poll button
+				$("#poll").click(function() {
+					
+					//open the dialog
+					$("#myDialog").dialog("open");
+				
+				});	
+			});
+		</script>
+  </body>
+</html>

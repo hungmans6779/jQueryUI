@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/sortableConnected.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Sortable Example 12</title>
+  </head>
+  <body>
+    <p>Tell us what music you like and don't like:</p>
+    <div id="likes">
+      <p>Likes</p>
+      <div>House</div>
+      <div>Hip Hop</div>
+      <div>Breaks</div>
+      <div>Drum & Bass</div>
+      <div>Rock</div>
+    </div>
+    <div id="dislikes">
+      <p>Dislikes</p>
+      <div>Folk</div>
+      <div>Country</div>
+      <div>Pop</div>
+      <div>Classical</div>
+      <div>Opera</div>
+    </div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.sortable.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+			
+				//define config object
+				var sortOpts = {
+					items: "div",
+					connectWith: ["#likes", "#dislikes"],
+					activate: function() {
+						$("<p>").text($(this).attr("id") + " has been activated").css({clear:"both"}).attr("id", "message").appendTo("body");
+					},
+					deactivate: function() {
+						$("<p>").text($(this).attr("id") + " has been deactivated").css({clear:"both"}).attr("id", "message").appendTo("body");
+					},
+					receive: function(e, ui) {
+						$("<p>").text(ui.helper.text() + " has joined a new list").css({clear:"both"}).attr("id", "message").appendTo("body");
+					},
+					remove: function(e, ui) {
+						$("<p>").text(ui.helper.text() + " has left its original list").css({clear:"both"}).attr("id", "message").appendTo("body");
+					}
+				};
+			
+				//make specified elements sortable
+				$("#likes").sortable(sortOpts);
+				$("#dislikes").sortable(sortOpts);
+			});
+		</script>
+  </body>
+</html>

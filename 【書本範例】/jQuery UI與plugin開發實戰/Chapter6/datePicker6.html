@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.datepicker.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Date Picker Example 6</title>
+  </head>
+  <body>
+    <label>Enter a date: </label><input id="date">
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.datepicker.js"></script>
+    <script type="text/javascript">
+			//define function to be executed on document ready
+			$(function(){
+			
+				//define config object for localisation
+				var frenchOpts = {
+					clearText: "Vide",
+					clearStatus: "Effacez la date du jour",
+					closeText: "Fin",
+					closeStatus: "Fermez-vous sans changement",
+					currentText: "Courant",
+					currentStatus: "Montrez le mois courant",
+					dateStatus: "Choisi DD, d M",
+					dayStatus: "Commencez semaine avec DD",
+					dayNames: [ "Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi" ],
+					dayNamesMin: [ "Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa" ],
+					firstDay: 1,
+					initStatus: "Choisissez une date",
+					monthNames: [ "Janvier", "Février", "Marche", "Avril", "Pouvez", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre" ],
+					monthNamesShort: [ "Jan", "Fév", "Mar", "Avr", "Pou", "Jui", "Jui", "Aoû", "Sep", "Oct", "Nov", "Déc" ],
+					monthStatus: "Montrez un mois différent",
+					nextText: "Après",
+					nextStatus: "Montrez le mois prochain",
+					prevText: "Préc",
+					prevStatus: "Montrez le mois précédent",
+					weekStatus: "",
+					showStatus: true,
+					yearStatus: "Montrez une année différente"
+				};
+				
+				//create the date picker
+				$("#date").datepicker(frenchOpts);	
+			});
+		</script>
+  </body>
+</html>

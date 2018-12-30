@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>無標題文件</title>
+   <link href="http://www.hhtravel.com/hTravel/css/index_style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" language="javascript" src="http://www.hhtravel.com/hTravel/js/jquery_focusAD.js" ></script>
+    <script type="text/javascript" language="javascript" >
+      <!--
+	     	var t = n = 0, count;
+	$(document).ready(function(){	
+		count=$("#banner_list a").length;
+		$("#banner_list a:not(:first-child)").hide();
+		$("#banner_info").html($("#banner_list a:first-child").find("img").attr('alt'));
+		$("#banner_info").click(function(){window.open($("#banner_list a:first-child").attr('href'), "_blank")});
+		$("#focus_area_bn li").click(function() {
+			var i = $(this).text() - 1;//取Li元素内的值，即1，2，3，4
+			n = i;
+			if (i >= count) return;
+			$("#banner_info").html($("#banner_list a").eq(i).find("img").attr('alt'));
+			$("#banner_info").unbind().click(function(){window.open($("#banner_list a").eq(i).attr('href'), "_blank")})
+			$("#banner_list a").filter(":visible").fadeOut(1500).parent().children().eq(i).fadeIn(500);
+			
+			document.getElementById("focus_area_bn").style.background="";
+			$(this).toggleClass("on");
+			$(this).siblings().removeAttr("class");
+		});
+		t = setInterval("showAuto()", 4000);
+		$("#focus_area_bn").hover(function(){clearInterval(t)}, function(){t = setInterval("showAuto()", 4000);});
+	})
+	
+	function showAuto()
+	{
+		n = n >=(count - 1) ? 0 : ++n;
+		$("#focus_area_bn li").eq(n).trigger('click');
+	}
+	  //--
+    </script>
+    
+</head>
+
+  <body>
+  
+    <!----index_head end--->
+    <div id="focus_area_bn">
+      <ul>
+        <li class="on">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+      </ul>
+      <div id="banner_list">
+        <a href="/hTravel/event/2012_aroundworld_list/index_tw.html" ><img src="http://www.hhtravel.com/hTravel/images/theme/64_b.jpg" title="新航A380豪華套房 坐臥雲端‧環遊世界"  /></a>
+        <a href="/hTravel/event/2012_summer/index.html" ><img src="http://www.hhtravel.com/hTravel/images/theme/62_b.jpg" title="頂級暑假"  /></a>
+        <a href="http://www.hhtravel.com/ezTopTravel/index.jsp?departArea=&prod_no=FRN0000009570&tab_name=prodSpecPage.html"><img src="http://www.hhtravel.com/hTravel/images/theme/61_b.jpg" title="陸海空秘探‧南美9大地球標記"  /></a>
+        <a href="/hTravel/event/2012_afraic/afraic_tw.html" ><img src="http://www.hhtravel.com/hTravel/images/theme/60_b.jpg" title="非洲"  /></a>
+      </div>
+    </div>
+    <!----index_theme end---> 
+
+
+  </body>
+
+</html>

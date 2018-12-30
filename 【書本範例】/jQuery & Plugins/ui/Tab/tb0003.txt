@@ -1,0 +1,56 @@
+tb0003.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.tabs.js"></script>
+<link rel="stylesheet" type="text/css" href="../themes/flora/flora.all.css" media="screen"/>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+  $(document).ready(function(){
+    $("#example > ul").tabs({
+	selected:null
+	});
+  });
+
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+ <div class="primarycontent" id=0>
+	<h1>$(&quot;#example &gt; ul&quot;).tabs();</h1>
+
+<div id="example" class="flora">
+            <ul>
+
+                <li><a href="#food-1"><span>Chocolate</span></a></li>
+                <li><a href="#food-2"><span>Blueberries</span></a></li>
+                <li><a href="#food-3"><span>Fish </span></a></li>
+            </ul>
+            <div id="food-1">
+                <img src=demo1.jpg >The Kuna people of the San Blas islands, off the coast of Panama, have a rate of heart disease that is nine times less than that of mainland Panamanians. The reason? The Kuna drink plenty of a beverage made with generous proportions of cocoa, which is unusually rich in flavanols that help preserve the healthy function of blood vessels. Maintaining youthful blood vessels lowers risk of high blood pressure, type 2 diabetes, kidney disease and dementia.
+
+Get sweet satisfaction in seconds with delicious chocolate recipes, such as Chocolate & Nut Butter Bites (which include two of the 7 anti-aging super foods!):
+            </div>
+            <div id="food-2">
+              <img src=demo2.jpg > In a landmark study published in 1999, researchers at Tufts University’s Jean Mayer Human Nutrition Research Center on Aging fed rats blueberry extract for a period of time that in “rat lives” is equivalent to 10 human years. These rats outperformed rats fed regular chow on tests of balance and coordination when they reached old age. Compounds in blueberries (and other berries) mitigate inflammation and oxidative damage, which are associated with age-related deficits in memory and motor function. Eat more blueberries with healthy blueberry recipes.
+            </div>
+            <div id="food-3">
+               <img src=demo3.jpg >Thirty years ago, researchers began to study why the native Inuits of Alaska were remarkably free of heart disease. The reason, scientists now think, is the extraordinary amount of fish they consume. Fish is an abundant source of omega-3 fats, which help prevent cholesterol buildup in arteries and protect against abnormal heart rhythms. Eat some tonight with a healthy fish recipe.
+            </div>
+        </div>
+
+
+
+</div>
+
+----------------------------------------------------------------------------------------------------
+
+

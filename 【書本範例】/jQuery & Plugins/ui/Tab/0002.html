@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "XHTML1-s.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>jQuery Plugins--UI/Tabs--002</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="../../style.css" />
+<link rel="stylesheet" type="text/css" href="../themes/flora/flora.all.css" media="screen"/>
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../../main.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.tabs.js"></script>
+<script type="text/javascript" src="tb0002.js"></script>
+<style>
+#example img{
+float:left;
+width:40%;
+margin-right:10px;
+}
+#example [id]{
+width:400px;
+height:300px;
+}
+</style>
+
+ 
+</head>
+  
+ 
+<body>
+<div id="header">
+
+	<h1>jQuery Plugins</h1>
+	<h2>UI / Tabs</h2>
+
+</div>
+
+<div id="menu">
+
+	<ul>
+
+		<!--
+				Each list item below represents a tab in the menu. Set the class
+				of any list item to 'active' to make it, well, active.
+		-->
+
+		<li id="first" class="active"><a href="#">Demo</a></li>
+		<li><a href="#">Code</a></li>
+		<li><a href="index.html">Index</a></li>
+	
+		
+	</ul>
+
+	<div></div>
+
+</div>
+
+
+<div id="container">
+
+	<div id="primarycontainer">
+				<!-- Demo-->
+
+	<div class="primarycontent" id=0>
+	<h1>$(&quot;#example &gt; ul&quot;).tabs();</h1>
+<b>selected:1</b><br>
+<div id="example" class="flora">
+            <ul>
+
+                <li><a href="#food-1"><span>Chocolate</span></a></li>
+                <li><a href="#food-2"><span>Blueberries</span></a></li>
+                <li><a href="#food-3"><span>Fish </span></a></li>
+            </ul>
+            <div id="food-1">
+                <img src=demo1.jpg >The Kuna people of the San Blas islands, off the coast of Panama, have a rate of heart disease that is nine times less than that of mainland Panamanians. The reason? The Kuna drink plenty of a beverage made with generous proportions of cocoa, which is unusually rich in flavanols that help preserve the healthy function of blood vessels. Maintaining youthful blood vessels lowers risk of high blood pressure, type 2 diabetes, kidney disease and dementia.
+
+Get sweet satisfaction in seconds with delicious chocolate recipes, such as Chocolate & Nut Butter Bites (which include two of the 7 anti-aging super foods!):
+            </div>
+            <div id="food-2">
+              <img src=demo2.jpg > In a landmark study published in 1999, researchers at Tufts University’s Jean Mayer Human Nutrition Research Center on Aging fed rats blueberry extract for a period of time that in “rat lives” is equivalent to 10 human years. These rats outperformed rats fed regular chow on tests of balance and coordination when they reached old age. Compounds in blueberries (and other berries) mitigate inflammation and oxidative damage, which are associated with age-related deficits in memory and motor function. Eat more blueberries with healthy blueberry recipes.
+            </div>
+            <div id="food-3">
+               <img src=demo3.jpg >Thirty years ago, researchers began to study why the native Inuits of Alaska were remarkably free of heart disease. The reason, scientists now think, is the extraordinary amount of fish they consume. Fish is an abundant source of omega-3 fats, which help prevent cholesterol buildup in arteries and protect against abnormal heart rhythms. Eat some tonight with a healthy fish recipe.
+            </div>
+        </div>
+
+
+
+</div>
+
+			<!--End Of Demo-->
+  
+		
+					<!--Code-->	
+<div class="primarycontent" id=1>
+	<p>html 內容<br>
+	(與運作有關的是&lt;head&gt;&lt;/head&gt;間引入的js檔案及&lt;!--Demo--&gt;與&lt;!--End Of Demo--&gt;之間的html)  </p>
+	<div id=vs></div>
+<br><br>			
+<p>tb0002.js 內容</p>
+  <textarea class=mycode>
+    $(document).ready(function(){
+    $("#example > ul").tabs({
+	selected:1
+	});
+  });
+
+
+
+</textarea><br>	
+		</div>
+	<!--End Of Code-->	
+		
+	</div>
+
+			<!-- Footer-->
+
+
+<div id="footer">
+	&copy; 2008 ezjquery. Created by <a href="http://www.ezjquery.com/">ezjquery</a> 
+
+</div>
+</body>
+</html>

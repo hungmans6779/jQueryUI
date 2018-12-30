@@ -1,0 +1,119 @@
+0002.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
+  <script src="jquery.validate.pack.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+ $("#example").validate({
+rules: {
+     name: {
+				required: true,
+				minlength: 2
+			},
+	email:{
+				required:true,
+					email:true
+				},
+	url:{
+				url:true
+				},
+	comment:'required',
+					sex:'required',
+					cc:'required',
+					age:'required'
+   }
+
+ });
+
+  });
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style type="text/css">
+#example { width: 500px; }
+#example label { width: 250px; }
+#example label.error, #example input.submit { display:block;margin-left: 253px;}
+#example input[type='radio'],#example input[type='checkbox']{border:none;}
+	</style>
+
+	<div class="primarycontent" id=0>
+	<h1>Validation</h1>
+	<b> $(&quot;#example&quot;).validate();
+</b><br><br>
+ <form class="cmxform" id="example" method="post" action="/form.php">
+	<fieldset>
+		<legend>My Form</legend>
+		<p>
+			<label for="cname">Name (required, at least 2 characters)</label>
+			 * <input id="cname" name="name"  />
+		<p>
+			<label for="cemail">E-Mail (required)</label>
+
+			 * <input id="cemail" name="email"  /> 
+		</p>
+		<p>
+			<label for="curl">URL (optional)</label>
+			 &nbsp;&nbsp;<input id="curl" name="url"  value="" />
+		</p>
+		<p>
+			<label for="ccomment">Your comment (required)</label>
+
+			 * <textarea id="ccomment" name="comment" ></textarea>
+		</p>
+		<p>
+			<label for="sex">Sex (required)</label>
+
+			 * <input type=radio name=sex value=male>Male<input type=radio name=sex value=female>Femal
+			 <label  for="sex" class="error" style='display:none'>Please select your sex</label>
+
+		</p>
+		<p>
+			<label for="cc">Contact (required)</label>
+
+			 * <input type=checkbox name=cc value=email>Email<input type=checkbox name=cc value=phone>Phone
+			 <label  for="cc" class="error" style='display:none'>Please select your Contact</label>
+
+		</p>
+		<p>
+			<label for="age">Age (required)</label>
+
+			 * <select name=age>
+ 			 <option value=>Please Select</option>
+			 <option value=10>10</option>
+			 <option value=20>20</option>
+			 <option value=30>30</option>
+			 <option value=40>40</option>
+			 <option value=50>50</option>
+			 <option value=60>60</option>
+			 <option value=70>70</option>
+			 <option value=80>80</option>
+			 <option value=90>90</option>
+			 </select>
+
+			 <label  for="age" class="error" style='display:none'>Please select your Age</label>
+
+		</p>
+
+				<p>
+			<input class="submit" type="submit" value="Submit"/>
+		</p>
+	</fieldset>
+</form>
+
+
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

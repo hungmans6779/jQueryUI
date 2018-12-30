@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/draggable.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Draggable Example 11</title>
+  </head>
+  <body>
+    <div id="drag"></div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.draggable.js"></script>
+    <script type="text/javascript">
+	  //function to execute when doc ready
+	  $(function() {
+	  
+	    //define config object
+			var dragOpts = {	
+				start: setShadow,
+				stop: unsetShadow
+			};
+			
+			//swap image to add drop shadow
+			function setShadow() {
+				$("#drag").css({ background: "url(img/draggable_on.png)", width:"120px", height:"121px" });
+			}
+			
+			//swap image back to original
+			function unsetShadow() {
+				$("#drag").css({ background: "url(img/draggable.png)", width:"114px", height:"114px" });
+			}
+	  
+	    //make the specified element draggable
+	    $("#drag").draggable(dragOpts);
+	  });
+	</script>
+  </body>
+</html>

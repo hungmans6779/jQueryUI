@@ -1,0 +1,13 @@
+#myAccordion { width:200px; border:2px solid #000000; position:relative; list-style-type:none; padding-left:0; }
+.ui-accordion-header { text-decoration:none; font-weight:bold; color:#000000; display:block; width:100%; text-align:center; }
+.ui-accordion div div { font-size:90%; }
+.ui-accordion a { background:url(../img/header-sprite.gif) repeat-x 0px 0px; color:#ffffff; }
+.ui-accordion a.selected { background:url(../img/header-sprite.gif) repeat-x 0px -22px; }
+.ui-accordion a:hover { background:url(../img/header-sprite.gif) repeat-x 0px -44px; }
+
+/* container rounded corners */
+.corner { position:absolute; width:12px; height:13px; background:url(../img/corner-sprite.gif) no-repeat; }
+.topLeft { top:-2px; left:-2px; background-position:0px 0px; }
+.topRight {top:-2px; right:-2px; background-position:0px -13px; }
+.bottomRight {bottom:-2px; right:-2px; background-position:0px -26px; }
+.bottomLeft { bottom:-2px; left:-2px; background-position:0px -39px; }

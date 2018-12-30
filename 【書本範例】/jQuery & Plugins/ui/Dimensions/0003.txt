@@ -1,0 +1,76 @@
+0003.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+	$('button').click(function(){
+var myid=$(this).attr('id');
+var value;
+switch (myid)
+{
+	case 'check1':$('#display').scrollTop(100);
+break;
+case 'check2':value=$('#display').scrollTop();displayit(value);
+break;
+case 'check3':$('#display').scrollLeft(150);
+break;
+case 'check4':value=$('#display').scrollLeft();displayit(value);
+break;
+
+
+}
+	});
+
+	function displayit(value){
+$('#display').html('<p>'+value+'</p>').scrollTop(0).scrollLeft(0);
+
+	}
+
+  });
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+ #display { 
+    color: white;
+    background-color:#6062b0;
+    width: 350px; 
+    height: 300px;
+    margin: 10px; 
+	padding:10px;
+	overflow:auto;
+  }
+  #display p{
+width:600px;
+height:600px;
+
+  }
+  </style>
+	<div class="primarycontent" id=0>
+	<h1>Dimensions</h1>
+	<b>#display scrollTop()/scrollTop(100)/scrollLeft()/scrollLeft(150)</b><br><br>
+  <div id=display><p>Information Here</p></div>
+  <button id=check1>#display scrollTop(100)</button>
+  <button id=check2>#display scrollTop</button><br>
+    <button id=check3>#display scrollLeft(150)</button>
+
+  <button id=check4>#display scrollLeft</button>
+  
+  
+
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

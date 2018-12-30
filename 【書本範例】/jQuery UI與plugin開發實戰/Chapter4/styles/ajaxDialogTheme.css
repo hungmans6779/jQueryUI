@@ -1,0 +1,20 @@
+/* page styles */
+h3 { margin-top:0px; }
+.content { border:1px solid #7eb8f8; margin-bottom:10px; position:relative; padding:10px; }
+.helpIcon { position:absolute; right:5px; bottom:5px; background:url(../img/QuestionMark.png) no-repeat; cursor:pointer; display:block; width:25px; height:25px; }
+.helpLabel { width:100%; text-align:right; margin:0px; position:relative; right:25px; top:-2px; font:bold 60% Verdana, Arial; }
+
+/* dialog styles */
+.flora .ui-dialog, .flora.ui-dialog { background-color:#ffffff; }
+.flora .ui-dialog .ui-dialog-titlebar, .flora.ui-dialog .ui-dialog-titlebar { background:url(../img/dialog/my-title.gif) repeat-x; background-color:#003399; }
+.flora .ui-dialog .ui-dialog-titlebar-close, .flora.ui-dialog .ui-dialog-titlebar-close { background:url(../img/dialog/my-title-close.gif) no-repeat; }
+.flora .ui-dialog .ui-dialog-titlebar-close-hover, .flora.ui-dialog .ui-dialog-titlebar-close-hover { background:url(../img/dialog/my-title-close-hover.gif) no-repeat; }
+.flora .ui-dialog .ui-resizable-n, .flora.ui-dialog .ui-resizable-n { background:url(../img/dialog/my-n.gif) repeat center top !important; height:8px !important; }
+.flora .ui-dialog .ui-resizable-s, .flora.ui-dialog .ui-resizable-s { background:url(../img/dialog/my-s.gif) repeat center bottom !important; height:8px !important; }
+.flora .ui-dialog .ui-resizable-e, .flora.ui-dialog .ui-resizable-e { background:url(../img/dialog/my-e.gif) repeat right center !important; width:7px !important; }
+.flora .ui-dialog .ui-resizable-w, .flora.ui-dialog .ui-resizable-w { background:url(../img/dialog/my-w.gif) repeat left center !important; width:7px !important; }
+.flora .ui-dialog .ui-resizable-ne, .flora.ui-dialog .ui-resizable-ne { background:url(../img/dialog/my-ne.gif) repeat !important; width:8px !important; height:8px !important; }
+.flora .ui-dialog .ui-resizable-se, .flora.ui-dialog .ui-resizable-se { background:url(../img/dialog/my-se.gif) repeat !important; width:9px !important; height:9px !important; }
+.flora .ui-dialog .ui-resizable-sw, .flora.ui-dialog .ui-resizable-sw { background:url(../img/dialog/my-sw.gif) repeat !important; width:8px !important; height:9px !important; }
+.flora .ui-dialog .ui-resizable-nw, .flora.ui-dialog .ui-resizable-nw { background:url(../img/dialog/my-nw.gif) repeat !important; width:8px !important; height:8px !important; }
+.flora .ui-dialog .ui-dialog-buttonpane button, .flora.ui-dialog .ui-dialog-buttonpane button { margin:6px 0 13px !important; }

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/draggableNoCursor.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Draggable Example 7</title>
+  </head>
+  <body>
+    <div id="drag"></div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.draggable.js"></script>
+    <script type="text/javascript">
+	  //function to execute when doc ready
+	  $(function() {
+	  
+	    //define config object
+			var dragOpts = {	
+				helper: "clone"
+			};
+	  
+	    //make the specified element draggable
+	    $("#drag").draggable(dragOpts);
+	  });
+	</script>
+  </body>
+</html>

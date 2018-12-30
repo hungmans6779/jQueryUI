@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/default/ui.all.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Auto Complete Widget Example 16</title>
+  </head>
+  <body>
+    <label>Please enter your country of birth:</label>
+    <input type="text" id="suggest">
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.autocomplete.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+				
+				//create greets object
+				var greets = {
+					Albania: "Allo",
+					Andorra: "Hola",
+					Argentina: "Mari mari",
+					Australia: "G'day Mate"					
+				};
+			
+				//create config object
+				var autocompOpts = {
+					url: "countries.php"
+				};
+				  				
+				//turn specified elements into an auto complete
+				$("#suggest").autocomplete(autocompOpts);
+				
+				//set handler for selection of a result
+				$("#suggest").autocomplete("result", function(event, data, formatted) {
+					(!$("#greeting")) ? null : $("#greeting").remove();
+					$("<p>").attr("id", "greeting").text("You selected: " + formatted + ", " + greets[data]).insertAfter("#suggest");	
+				});
+	    });
+	  </script>
+  </body>
+</html>

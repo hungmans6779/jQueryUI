@@ -1,0 +1,64 @@
+0001.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
+  <script src="jquery.validate.pack.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+ $("#example").validate();
+  });
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style type="text/css">
+#example { width: 500px; }
+#example label { width: 250px; }
+#example label.error, #example input.submit { display:block;margin-left: 253px; }
+
+	</style>
+	<div class="primarycontent" id=0>
+	<h1>Validation</h1>
+	<b> $(&quot;#example&quot;).validate();
+</b><br><br>
+ <form class="cmxform" id="example" method="post" action="/form.php">
+	<fieldset>
+		<legend>My Form</legend>
+		<p>
+			<label for="cname">Name (required, at least 2 characters)</label>
+			 * <input id="cname" name="name" class="required" minlength="2" />
+		<p>
+			<label for="cemail">E-Mail (required)</label>
+
+			 * <input id="cemail" name="email" class="required email" /> 
+		</p>
+		<p>
+			<label for="curl">URL (optional)</label>
+			 &nbsp;&nbsp;<input id="curl" name="url" class="url" value="" />
+		</p>
+		<p>
+			<label for="ccomment">Your comment (required)</label>
+
+			 * <textarea id="ccomment" name="comment" class="required"></textarea>
+		</p>
+		<p>
+			<input class="submit" type="submit" value="Submit"/>
+		</p>
+	</fieldset>
+</form>
+
+
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

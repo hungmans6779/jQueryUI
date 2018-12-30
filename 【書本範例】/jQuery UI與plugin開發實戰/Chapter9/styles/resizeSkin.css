@@ -1,0 +1,5 @@
+.resize { width:200px; height:200px; margin:30px 0 0 30px; border:1px solid #3fa0ff; }
+.ui-resizable-e { background:url(../img/resizable/resizable-e.gif) repeat right center; }
+.ui-resizable-s { background:url(../img/resizable/resizable-s.gif) repeat center top; }
+.ui-resizable-se { background:url(../img/resizable/resizable-se.gif) repeat; }
+

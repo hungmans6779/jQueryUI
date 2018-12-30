@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+		<link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.accordion.css">
+    <link rel="stylesheet" type="text/css" href="styles/navAccordionTheme.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Accordion Navigation Example</title>
+  </head>
+  <body>
+		<div id="container">
+			<div id="navCol">
+				<ul id="navAccordion">
+					<li>
+						<a class="heading" href="#me" title="About Me">About Me</a>
+						<div>
+							<a href="bio.html#me" title="Bio">My Bio</a>
+							<a href="contact.html#me" title="Contact Me">Contact Me</a>
+							<a href="resume.html#me" title="Resume">My Resume</a>
+						</div>
+					</li>
+					<li>
+						<a class="heading" href="#js" title="JavaScript">JavaScript</a>
+						<div>
+							<a href="tutorials.html#js" title="JavaScript Tutorials">JavaScript Tutorials</a>
+							<a href="ajax.html#js" title="AJAX">AJAX</a>
+							<a href="apps.html#js" title="JavaScript Apps">JavaScript Apps</a> 
+						</div>
+					</li>
+					<li>
+						<a class="heading" href="#css" title="CSS">CSS</a>
+						<div>
+							<a href="layouts.html#css" title="Layouts">Layouts</a>
+							<a href="themes.html#css" title="Themes">Themes</a>
+							<a href="hacks.html#css" title="Hacks">Hacks</a> 
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div id="contentCol">
+				<h1>A jQuery UI Accordion Navigation Example!</h1>
+				<p>This is the starting page for this example, when you click on either of the accordion headings at the left, an accordion drawer containing a set of links will open. Clicking on a link will take you to a new page, which will look exactly like this one but will have different text on it.</p>
+			</div>
+			<div id="clear"></div>
+		</div>
+		<script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.accordion.js"></script>
+    <script type="text/javascript">
+	  //function to execute when doc ready
+	  $(function() {
+	  	    
+			//turn specified element into an accordion
+	    $("#navAccordion").accordion({
+				header: ".heading",
+				event: "mouseover",
+				autoHeight: false,
+				alwaysOpen: false,
+				active:false,
+				navigation: true  
+			});
+	  });
+	</script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/draggableIndented.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Draggable Example 12</title>
+  </head>
+  <body>
+		<div id="container">
+	    <div id="drag"></div>
+		</div>
+    <div id="results"></div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.draggable.js"></script>
+    <script type="text/javascript">
+	  //function to execute when doc ready
+	  $(function() {
+	  
+	    //define config object
+			var dragOpts = {
+				helper: "clone",	
+				stop: getNewPos
+			};
+			
+			//get the new position
+			function getNewPos(e, ui) {
+			
+				e.stopPropagation();		  
+				var relativeP = $("<p>").attr("id", "test").text("The helper was moved to " + ui.position.top + "px from the top, and " + ui.position.left + "px to the left of the original object.");
+				var absoluteP = $("<p>").attr("id", "test").text("The helper was moved to " + ui.absolutePosition.top + "px from the top, and " + ui.absolutePosition.left + "px to the left relative to the page.");
+				$("#results").empty().append(relativeP).append(absoluteP);
+			}
+	  
+	    //make the specified element draggable
+	    $("#drag").draggable(dragOpts);
+	  });
+	</script>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.tabs.css">
+    <link rel="stylesheet" type="text/css" href="styles/imageSelector.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Image Selection Example</title>
+  </head>
+  <body>
+    <div id="imageSelector">
+      <div id="status"></div>
+      <div id="viewer"><span class="top"></span><span class="bottom"></span></div>
+      <div id="thumbs">
+        <span class="top"></span>
+        <img id="Matt_Boat" src="img/thumbs/a.jpg">
+        <img id="Matt_and_James" src="img/thumbs/b.jpg">
+        <img id="James" src="img/thumbs/c.jpg">
+        <img id="Matt_and_James_2" src="img/thumbs/d.jpg">
+        <img id="Matt_Beach" src="img/thumbs/e.jpg">
+        <img id="Matt_Beach_2" src="img/thumbs/f.jpg">
+        <img id="Beth" src="img/thumbs/g.jpg">
+        <img id="Matt_Swing" src="img/thumbs/h.jpg">
+        <span class="bottom"></span>
+      </div>
+    </div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.selectable.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.tabs.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+			
+				//define config object
+				var selectOpts = {
+					stop: function(e, ui) {
+						($(".ui-selected").length == 1) ? singleSelect() : multiSelect();
+					} 
+				};
+			
+				//make specified elements selectable
+				$("#thumbs").selectable(selectOpts);
+			
+				function singleSelect() {
+					
+					//remove tabs if they already exist
+					($("#tabs").length != 0) ? $("#tabs").remove() : null;
+					
+					//add status bar if not present
+					($("#status").length == 0) ? $("<div>").attr("id", "status").insertBefore($("#viewer")) : null;
+					
+					//add selected image to viewer
+					$("#viewer").children().not("span").remove();
+					$("<img>").attr("src", "img/large/" + $(".ui-selected").attr("src").substr($(".ui-selected").attr("src").length - 5,5)).appendTo($("#viewer"));
+						
+					//clean file id and add to status bar
+					$("#status").empty();
+					var name = $(".ui-selected").attr("id");
+					var matchIndex = name.indexOf("_");
+					while(matchIndex != -1) {
+						name = name.replace("_", " ")
+						matchIndex = name.indexOf("_");
+					}
+					$("<p>").text(name).appendTo($("#status"));
+				}
+				
+				function multiSelect() {
+					
+					//remove pre-existing clutter
+					($("#tabs").length != 0) ? $("#tabs").remove() : null;
+					($("#status").length != 0) ? $("#status").remove() : null;
+					$("#viewer").children().not("span").remove();
+					var x = 0;
+					
+					//create tab parent
+					var tabList = $("<ul>").attr("id", "tabs").insertBefore($("#viewer"));
+					
+					$(".ui-selected").each(function() {
+					
+						//add tabs
+						var tabItem = $("<li>").appendTo(tabList);
+					
+						if ($(".ui-selected").length == 8) {
+								var tabLink = $("<a />").attr("href", "#" + x).css({ paddingRight:4 }).appendTo(tabItem);
+						} else if ($(".ui-selected").length == 7) {
+								var tabLink = $("<a />").attr("href", "#" + x).css({ paddingRight:6 }).appendTo(tabItem);
+						} else if ($(".ui-selected").length == 6) {
+								var tabLink = $("<a />").attr("href", "#" + x).css({ paddingRight:8 }).appendTo(tabItem);
+						} else if ($(".ui-selected").length == 5) {
+								var tabLink = $("<a />").attr("href", "#" + x).css({ paddingRight:10 }).appendTo(tabItem);
+						} else {
+							var tabLink = $("<a />").attr("href", "#" + x).appendTo(tabItem);
+						}
+						
+						//clean file id and add span
+						var name = $(this).attr("id");
+						var matchIndex = name.indexOf("_");
+						while(matchIndex != -1) {
+							name = name.replace("_", " ")
+							matchIndex = name.indexOf("_");
+						}
+						(name.indexOf("and") != -1) ? name = name.replace("and", "&") : null;
+						
+						if ($(".ui-selected").length == 8) {
+							$("<span />").text(name).css({paddingLeft:4}).appendTo(tabLink);
+						} else if ($(".ui-selected").length == 7) { 
+							$("<span />").text(name).css({paddingLeft:6}).appendTo(tabLink);
+						} else if ($(".ui-selected").length == 6) { 
+							$("<span />").text(name).css({paddingLeft:8}).appendTo(tabLink);
+						} else if ($(".ui-selected").length == 5) { 
+							$("<span />").text(name).css({paddingLeft:10}).appendTo(tabLink);
+						} else {
+							$("<span />").text(name).appendTo(tabLink);
+						}
+						
+						//add tab panels
+						var panel = $("<div>").attr("id", x).appendTo($("#viewer"));
+						$("<img>").attr("src", "img/large/" + $(this).attr("src").substr($(this).attr("src").length - 5,5)).appendTo(panel);
+					
+						x++;
+					});
+					
+					//make the tab set and select first tab
+					tabList.tabs();
+				}
+			});
+		</script>
+  </body>
+</html>

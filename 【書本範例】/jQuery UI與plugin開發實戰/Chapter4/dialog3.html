@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.dialog.css">
+		<link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.resizable.css">
+    <link rel="stylesheet" type="text/css" href="styles/dialogTheme.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Dialog Example 3</title>
+  </head>
+  <body>
+    <div id="myDialog" class="flora" title="This is the title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean sollicitudin. Sed interdum pulvinar justo. Nam iaculis volutpat ligula. Integer vitae felis quis diam laoreet ullamcorper. Etiam tincidunt est vitae est. Ut posuere, mauris at sodales rutrum, turpis tellus fermentum metus, ut bibendum velit enim eu lectus. Suspendisse potenti. Donec at dolor ac metus pharetra aliquam. Suspendisse purus. Fusce tempor ultrices libero. Sed quis nunc. Pellentesque tincidunt viverra felis. Integer elit mauris, egestas ultricies, gravida vitae, feugiat a, tellus.</div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.dialog.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.resizable.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.draggable.js"></script>
+    <script type="text/javascript">
+			//define function to be executed on document ready
+			$(function(){
+			
+				//define config object
+				var dialogOpts = {
+					modal: true,
+					overlay: {
+						background: "url(img/modal.png) repeat" 
+					}
+				};
+			
+				//create the dialog
+				$("#myDialog").dialog(dialogOpts);
+		
+			});
+		</script>
+  </body>
+</html>

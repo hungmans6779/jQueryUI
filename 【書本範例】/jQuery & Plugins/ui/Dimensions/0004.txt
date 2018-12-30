@@ -1,0 +1,62 @@
+0004.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+	$('button').click(function(){
+var myid=$(this).attr('id');
+var myoffset=$('#display').offset();
+var value;
+switch (myid)
+{
+	case 'check1':value=myoffset.top;displayit(value);
+break;
+case 'check2':value=myoffset.left;displayit(value);
+break;
+}
+	});
+	function displayit(value){
+$('#display').html(value);
+	}
+  });
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+ #display { 
+    color: white;
+    background-color:#6062b0;
+    width: 200px; 
+    height: 150px;
+    margin: 10px; 
+	padding:10px;
+	overflow:auto;
+  }
+  
+  </style>
+
+  <div class="primarycontent" id=0>
+	<h1>Dimensions</h1>
+	<b>#display offset.top / offset.left</b><br><br>
+  <div id=display>Information Here</div>
+  <button id=check1>offset.top</button>
+  <button id=check2>offset.left</button><br>
+  
+  
+  
+
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

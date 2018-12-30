@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/colorAnim.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Color Animation Example</title>
+  </head>
+  <body>
+    <div><label>Name: </label><input type="text"></div>
+    <div><label>Age: </label><input type="text"></div>
+    <div><label>Email: </label><input type="text"></div>
+    <button id="submit">Submit</button>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.core.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+			
+				$("#submit").click(function() {
+			
+					//check fields not empty
+					$("input").each(function() {
+					
+						//color red if they are
+						($(this).val().length == 0) ? $(this).animate({
+							backgroundColor:"#ff9999",
+							borderTopColor:"#ff0000",
+							borderRightColor:"#ff0000",
+							borderBottomColor:"#ff0000",
+							borderLeftColor:"#ff0000"
+						}) : $(this).animate({  //color green if not
+							backgroundColor:"#ccffcc",
+							borderTopColor:"#00ff00",
+							borderRightColor:"#00ff00",
+							borderBottomColor:"#00ff00",
+							borderLeftColor:"#00ff00"
+						});
+					});
+				});
+			});
+		</script>
+  </body>
+</html>

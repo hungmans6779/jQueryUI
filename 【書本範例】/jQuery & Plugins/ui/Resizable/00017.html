@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "XHTML1-s.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>jQuery Plugins--UI/Resizable---00017</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="../../style.css" />
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../../main.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.draggable.js"></script>
+<script type="text/javascript" src="rs00017.js"></script>
+
+
+<style type="text/css">
+/*************************************/
+/* Real-World CSS                    */
+
+@import "r.css";
+
+/*************************************/
+/* Demo CSS                          */
+
+#sidebar div {
+    text-align:center;
+}
+.thumb ul {
+    padding:10px 0 0 0;
+}
+.thumbs li {
+    margin:4px 20px;
+}
+.thumbs li a,
+.thumbs li a img{
+    height: 56px;
+    width: 75px;
+    display: block;
+}
+.thumbs li a:hover,
+.thumbs li a:hover img{
+    /*height: 130px;
+    width: 130px;*/
+	
+}
+.thumbs li a:hover {
+    border: 1px solid gray;
+}
+
+#break strong {
+    margin:0 0 4px 0;
+}
+#break ul {
+    padding:6px;
+}
+#break ul li {
+    padding:3px 0px;
+    font-style: italic;
+}
+#break ul li span {
+    font-style: normal;
+}
+
+.ui-resizable-knob {
+	border: 1px #fff dashed;
+}
+
+/**************************************/
+/* Cropper CSS   以下是相關的CSS(重要)*/
+
+#resizeme_containment_wrap_image {
+  position: relative;
+}
+#resizeme_containment_div {
+    position: absolute;
+    top:0px;
+    left:0px;
+    width: 75px;
+    height:75px;
+	border: 1px solid black;
+}
+#resizeme_containment_div1 {
+    position: absolute;
+    top:145px;
+    left:600px;
+    width: 192px;
+    height:192px;
+	border: 5px solid #53504A;
+}
+#resizeme_containment_div_wrapper {
+   position: relative;
+}
+.caption {
+
+position: relative;
+z-index:1;
+font-family: verdana, helvetica, sans-serif;
+font-size: 12px;
+font-weight: bold;
+top:200px;
+height: 20px;	
+width: 182px;
+overflow: hidden;	
+text-align:center;
+background-color: black;	
+padding: 8px;
+color:white;
+
+}
+
+/**************************************/
+
+#header
+{
+	background-color: #0022aa;
+	color: #fff;
+	padding: 30px 40px 30px 40px;
+}
+
+#header h1
+{
+	font-size: 30px;
+	padding:5px;
+
+}
+
+#header h2
+{
+	font-size: 14px;
+}
+
+#primarycontainer
+{
+	float: left;
+	margin-right: -200px;
+	width: 100%;
+}
+</style>
+ 
+</head>
+<body>
+
+<div id="header">
+
+	<h1>jQuery Plugins</h1>
+	<h2>UI / Draggable</h2>
+
+</div>
+
+<div id="menu">
+
+	<ul>
+<!--
+				Each list item below represents a tab in the menu. Set the class
+				of any list item to 'active' to make it, well, active.
+		-->
+		
+
+		<li id="first" class="active"><a href="#">Demo</a></li>
+		<li><a href="#">Code</a></li>
+		<li><a href="index.html">Index</a></li>
+
+		
+	</ul>
+
+	<div></div>
+
+</div>
+
+
+<div id="container">
+
+	<div id="primarycontainer">
+				<!-- Demo-->
+
+	<div class="primarycontent" id=0>
+	<div id="sidebar">
+        <ul class="thumbs">
+
+            <li><a href="#" title="Open This Image"><img src="img/b01s.jpg" rel="img/b01.jpg" alt="SUZUKI 2008" /></a></li>
+            <li><a href="#" title="Open This Image"><img src="img/b02s.jpg" rel="img/b02.jpg" alt="SUZUKI 2008"/></a></li>
+            <li><a href="#" title="Open This Image"><img src="img/b03s.jpg" rel="img/b03.jpg" alt="SUZUKI MOTUL"/></a></li>
+            <li><a href="#" title="Open This Image"><img src="img/b04s.jpg" rel="img/b04.jpg" alt="SUZUKI A+"/></a></li>
+            <li><a href="#" title="Open This Image"><img src="img/b05s.jpg" rel="img/b05.jpg" alt="SUZUKI GSX 750R"/></a></li>
+			<li><a href="#" title="Open This Image"><img src="img/b06s.jpg" rel="img/b06.jpg" alt="SUZUKI GSX 750"/></a></li>
+</ul>
+        </div>
+   </div>
+    <div id="main">
+        
+        <div id="content">
+                <div id="resizeme_containment_div_wrapper">
+                    <div id="resizeme_containment_wrap_image"></div>
+                    <div id="resizeme_containment_div"></div>
+                </div>
+        </div>
+                    <div id="resizeme_containment_div1"><div class=caption></div></div>
+
+         </div>
+	
+			<!--End Of Demo-->
+  
+		
+					<!--Code-->	
+<div class="primarycontent" id=1>
+	<p>html 內容<br>
+	(與運作有關的是&lt;head&gt;&lt;/head&gt;間引入的js檔案及&lt;!--Demo--&gt;與&lt;!--End Of Demo--&gt;之間的html)  </p>
+	<div id=vs></div>
+<br><br>			
+<p>rs00017.js 內容</p>
+  <textarea class=mycode>
+     
+  
+ var mywidth,myheight;
+ // getSizeImg 主要是要求得目前圖形的寬與高的一個陣列
+
+ var getSizeImg = function(src) {
+        var timg = $('<img>').attr('src', src).css({ position: 'absolute', top: '-1000px', left: '-1000px' }).appendTo('body');
+        var size = [ timg.get(0).offsetWidth, timg.get(0).offsetHeight ];        
+        try { document.body.removeChild(timg[0]); }
+        catch(e) {};
+
+        return size;
+    };
+///// End of getSizeImg
+
+
+  $().ready(function(){
+
+	$('#resizeme_containment_div')
+
+	.draggable({//拖曳時的作法
+
+		cursor: 'move',
+
+		containment: $('#resizeme_containment_div_wrapper'),//讓所有的拖曳及縮放保持在這個DIV中
+
+		drag: function(e, ui) {//拖曳時
+
+			this.style.backgroundPosition = '-' + (ui.position.left) + 'px -' + (ui.position.top) + 'px';//隨著拖曳的top與left,改變小框內背景的顯示位置,用-leftpx 及 -toppx
+			//寫入右側顯示框的相對比例背景位置
+			$('#resizeme_containment_div1').css({backgroundPosition:'-' + (ui.position.left)*2.56 + 'px -' + (ui.position.top)*2.56 + 'px'});
+			//寫入資訊
+		  $("#log-top").html(ui.position.top+"px");
+		  $("#log-left").html(ui.position.left+"px");
+
+		}
+
+	});
+
+	//左列圖形被click時，初始化
+
+    	$('.thumbs').find("li a").click(function(e){
+    
+    	  //初始化小框
+		  $('#resizeme_containment_div').css('top', '0');
+    	  $('#resizeme_containment_div').css('left', '0');
+    	  $('#resizeme_containment_div').css('width', mywidth);
+    	  $('#resizeme_containment_div').css('height', myheight);
+          
+          var size = getSizeImg($(this).find("img").attr("src"));
+		//初始化三層結構的背景及位置
+    	  $('#resizeme_containment_wrap_image').css( { width: size[0], height: size[1], background: 'transparent url('+$(this).find("img").attr("src")+') no-repeat scroll 0%' } );
+          $('#resizeme_containment_div_wrapper').css( { width: size[0], height: size[1] } );
+    	  $('#resizeme_containment_div').css('background', 'transparent url('+$(this).find("img").attr("src")+') no-repeat scroll 0px 0px');
+    	  $('#resizeme_containment_div1').css('background', 'transparent url('+$(this).find("img").attr("rel")+') no-repeat scroll 0px 0px');
+
+          return false;
+
+    	});
+
+
+    	//降低僞背景圖的透明度
+		$('#resizeme_containment_wrap_image').css({ opacity: 0.5 });
+
+
+     });
+     
+     $(window).load(function(){
+        var size = getSizeImg("img/b01s.jpg");
+		//三層結構
+		//<div id="resizeme_containment_div_wrapper">外框與範圍
+        //<div id="resizeme_containment_wrap_image"></div>----僞背景圖
+        //<div id="resizeme_containment_div"></div>-----真背景圖
+        //</div>
+		//
+		mywidth=$('#resizeme_containment_div').css('width');
+		myheight=$('#resizeme_containment_div').css('height');
+       	$('#resizeme_containment_div').css('background', 'transparent url(img/b01s.jpg) no-repeat scroll 0px 0px');
+		//右側顯示框
+		$('#resizeme_containment_div1').css('background', 'transparent url(img/b01.jpg) no-repeat scroll 0px 0px');
+
+       	$('#resizeme_containment_div_wrapper').css( { width: size[0], height: size[1] } );
+        $('#resizeme_containment_wrap_image').css( { width: size[0], height: size[1], background: 'transparent url(img/b01s.jpg) no-repeat scroll 0%' } );
+
+       });
+
+</textarea><br>	
+		</div>
+	<!--End Of Code-->	
+		
+	</div>
+
+			<!-- Footer-->
+
+
+<div id="footer">
+	&copy; 2008 ezjquery. Created by <a href="http://www.ezjquery.com/">ezjquery</a> 
+
+</div>
+
+
+</body>
+</html>

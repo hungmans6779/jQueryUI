@@ -1,0 +1,67 @@
+0001.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+	$('button').click(function(){
+var myid=$(this).attr('id');
+var value;
+switch (myid)
+{
+case 'check1':value=$(window).width();displayit(value);
+break;
+case 'check2':value=$(window).height();displayit(value);
+break;
+case 'check3':value=$(document).width();displayit(value);
+break;
+case 'check4':value=$(document).height();displayit(value);
+break;
+
+}
+	});
+
+	function displayit(value){
+$('#display').html(value);
+
+	}
+
+  });
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+ #display { 
+    color: white;
+    background-color:#6062b0;
+    width: 150px; 
+    height: 70px;
+    margin: 10px; 
+	padding:10px;
+  }
+  </style>
+		<div class="primarycontent" id=0>
+	<h1>Dimensions</h1>
+	<b>window & document width/height</b><br><br>
+  <div id=display>Information Here</div>
+  <button id=check1>window width</button>
+  <button id=check2>window height</button>
+  <button id=check3>document width</button>
+  <button id=check4>document height</button>
+
+
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

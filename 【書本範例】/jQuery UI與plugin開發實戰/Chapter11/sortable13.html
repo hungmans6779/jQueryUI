@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/sortableConnected.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Sortable Example 13</title>
+  </head>
+  <body>
+    <p>Put these in ascending order of your preference</p>
+    <div id="likes">
+      <p>Likes</p>
+      <div id="likes_house">House</div>
+      <div id="likes_hiphop">Hip Hop</div>
+      <div id="likes_breaks">Breaks</div>
+      <div id="likes_drumandbass">Drum & Bass</div>
+      <div id="likes_rock">Rock</div>
+    </div>
+    <button id="serialize">Serialize it!</button>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.sortable.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+			
+				//define config object
+				var sortOpts = {
+					items: "div"
+				};
+			
+				//make specified element sortable
+				$("#likes").sortable(sortOpts);
+			
+				//handler for button click
+				$("#serialize").click(function() {
+					var serialized = $("#likes").sortable("serialize", { key:"likes"});
+					(!$("#string")) ? null : $("#string").remove();
+					$("<p>").attr("id", "string").text(serialized).appendTo("body");
+		
+				});
+			});
+		</script>
+  </body>
+</html>

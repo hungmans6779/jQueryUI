@@ -1,0 +1,88 @@
+st00010.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.sortable.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+    $("#myList").sortable({
+		connectWith: ["#myList1"]
+			
+			});
+		$("#myList1").sortable({
+			connectWith: ["#myList"]
+				
+			});
+
+			$('#b1').click(function(){
+alert($("#myList").sortable('toArray'));
+			});
+			$('#b2').click(function(){
+alert($("#myList1").sortable('toArray'));
+			});
+
+  });
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+ul { 
+list-style: none; 
+float:left;
+}
+#myList li { 
+background: #727EA3; color: #FFF; width: 100px; margin: 5px; font-size: 10px; font-family: Arial; padding: 3px; 
+}
+
+#myList1 li { 
+background: red; color: white; width: 100px; margin: 5px; font-size: 10px; font-family: Arial; padding: 3px; 
+}
+.limit{
+width:300px;
+height:300px;
+border:solid 1px black
+}
+.blank{
+background: #18FF00;
+}
+.hide{
+display:none
+}
+</style>
+ 
+ 
+<div class="primarycontent" id=0>
+	<h1>$(&quot;#myList&quot;).sortable(&quot;toArray&quot;);</h1>
+	<br>
+
+	<button id=b1>Submit myList</button><button  id=b2>Submit myList1</button>
+	
+<ul id="myList">
+	    <li id='list01'>Item 1</li>
+	    <li id='list02'>Item 2</li>
+	    <li id='list03'>Item 3</li>
+	    <li id='list04'>Item 4</li>
+				
+
+</ul>
+<ul id="myList1">
+	    <li id='list05'>Item 5</li>
+	    <li id='list06'>Item 6</li>
+	    <li id='list07'>Item 7</li>
+	    <li id='list08'>Item 8</li>
+		
+
+</ul>
+</div>
+----------------------------------------------------------------------------------------------------
+
+

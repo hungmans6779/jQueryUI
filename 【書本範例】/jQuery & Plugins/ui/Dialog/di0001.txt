@@ -1,0 +1,36 @@
+di0001.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.dialog.js"></script>
+<script type="text/javascript" src="../js/ui.resizable.js"></script>
+<script type="text/javascript" src="../js/ui.draggable.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../themes/flora/flora.all.css" media="screen"/>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+    $('#example').datepicker();
+  });
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+ <div class="primarycontent" id=0>
+	<h1>$(&quot;#example&quot;).dialog();</h1>
+
+<div id="example" class="flora">Example</div>
+
+
+</div>
+
+----------------------------------------------------------------------------------------------------
+
+

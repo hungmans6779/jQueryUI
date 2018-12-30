@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.resizable.css">
+		<link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.tabs.css">
+    <link rel="stylesheet" type="text/css" href="styles/resizableTabsTheme.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Resizable Tabs Example</title>
+  </head>
+  <body>
+    <ul id="myTabs">
+      <li><a href="#0"><span>Tab 1</span></a></li>
+      <li><a href="#1"><span>Tab 2</span></a></li>
+    </ul>
+    <div class="tab" id="0">This is the content panel linked to the first tab, it is shown by default.</div>
+    <div class="tab" id="1">This content is linked to the second tab and will be shown when its tab is clicked.</div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.resizable.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.tabs.js"></script>
+    <script type="text/javascript">
+			//define function to be executed on document ready
+			$(function(){
+			
+				//set initial tab size
+				var newHeight = 100;
+				var newWidth = 300;
+			
+				var tabOpts = {
+					show: setSize
+				}
+				
+				function setSize(e, ui) {
+					//set the dimensions of the tab
+					var panel = ui.panel;
+					$(panel).height(newHeight).width(newWidth); 	
+				}
+					
+				//create the tabs
+				var tabs = $("#myTabs").tabs(tabOpts);
+									
+				//define config object for resizeable
+				var resizeOpts = {
+					autoHide: true,
+					stop: resizeSibling
+				};
+					
+				//resize the other tab at the same time
+				function resizeSibling() {
+					
+					//get the new dimensions
+					newHeight = $(this).height();	
+					newWidth = $(this).width();
+				}
+								
+				//make tabs resizable
+				$(".tab").resizable(resizeOpts);
+			});
+		</script>
+  </body>
+</html>

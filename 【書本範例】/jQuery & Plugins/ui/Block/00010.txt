@@ -1,0 +1,74 @@
+00010.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+  <script src="jquery.blockUI.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function() { 
+     $('#login').click(function() { 
+            $.blockUI({ message: $('#loginform'), css: { width: '200px',padding:'10px' } }); 
+        }); 
+			
+		$('#loginsubmit').submit(function(){
+				if ($(':input[name="myid"]').val() !='')
+		{
+			
+			$.ajax({
+				type:'POST',
+				url:'/login.php',
+					data:'myid='+$(':input[name="myid"]').val()+'&pw='+$(':input[name="pw"]').val(),
+					cache:false,					
+					success:function(msg){
+					if (msg!=0)
+					{
+						$('#result').html(msg).show('slow',function(){
+						$.unblockUI();							
+							
+					});	
+					}
+										
+			}
+			
+			
+			});
+		}
+		
+return false;
+		});
+    }); 
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+#loginform,#result{
+display:none;
+}
+</style>
+<div class="primarycontent" id=0>
+	<h1>Block</h1>
+	<b> Login / Block
+
+
+</b><br><br>
+<button id=login>Login</button>
+<div id=loginform><form id=loginsubmit><p>ID:<input type=text name="myid"></p><p>Pw:<input type=password name=pw></p><input type=submit value='Login'></form></div>
+<div id=result></div>
+
+
+
+
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

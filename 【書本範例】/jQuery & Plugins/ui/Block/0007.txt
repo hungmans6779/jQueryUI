@@ -1,0 +1,77 @@
+0007.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+  <script src="jquery.blockUI.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+    $(document).ready(function() { 
+    $('#example').click(function() { 
+        $.blockUI({  
+            message: $('#demo'),  
+            css: {  
+                top:  ($(window).height() - 332) /2 + 'px', 
+                left: ($(window).width() - 500) /2 + 'px', 
+                width: '500px' 
+            }  
+        }); 
+         
+        setTimeout($.unblockUI, 2000); 
+    });     
+});     
+    
+
+
+
+
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+#demo{
+width:500px;
+height:332px;
+font:30px Arial;
+text-align:center;
+background:url(demo1.jpg);
+display:none;
+}
+#display{
+margin-top:130px;
+
+}
+</style>
+
+<div class="primarycontent" id=0>
+	<h1>Block</h1>
+	<b> $.blockUI({  
+            message: $(&quot;#demo&quot;),  
+            css: {  
+                top:  ($(window).height() - 332) /2 + &quot;px&quot;, 
+                left: ($(window).width() - 500) /2 + &quot;px&quot;, 
+                width: &quot;500px&quot; 
+            }  
+        });    
+
+
+</b><br><br>
+<button id=example>Block</button>
+<div id=demo><div id=display>Please Wait........</div></div>
+
+
+
+
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

@@ -1,0 +1,107 @@
+0007.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+  <script src="jquery.tooltip.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+   $(document).ready(function() {
+	$("#example a").tooltip({ 
+		bodyHandler: function() {
+		return $($(this).attr("href")).html();
+	},
+    track: true, 
+    delay: 0, 
+    showURL: false, 
+    opacity: 1, 
+    fixPNG: true, 
+    extraClass: "mytooltip fancy", 
+    top: -15, 	
+    left: 5 
+});
+});
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+fieldset{
+width:250px;
+border: 1px solid black; 
+padding: 8px; 
+margin: 8px 0;
+}
+:focus {
+	outline: 0;
+}
+
+#tooltip {
+	position: absolute;
+	z-index: 3000;
+	border: 1px solid #111;
+	background-color: white;
+	padding: 5px;
+	opacity: 0.85;
+	filter:alpha(opacity=85);
+}
+#tooltip h3, #tooltip div { 
+margin: 0;
+}
+#tooltip h3{
+font-size: 12px;
+}
+
+#tooltip.mytooltip {
+	font-family: Arial;
+	border: none;
+	width: 210px;
+	padding:20px;
+	height: 135px;
+		background: url('shadow.png');
+	opacity: 0.8;
+		filter:alpha(opacity=80);
+	
+}
+#tooltip.fancy {
+	background: url('shadow2.png');
+	padding-top: 5em;
+	height: 100px;
+}
+#tooltip.fancy.viewport-right {
+	background: url('shadow2-reverse.png');
+}
+
+#tooltip.fancy img{
+float:left;
+margin:5px;
+}
+.tip{
+display:none;
+}
+</style>
+<div class="primarycontent" id=0>
+	<h1>Tooltip</h1>
+	<b>      extraClass: &quot;mytooltip fancy&quot;, 
+
+
+
+</b><br><br>
+<fieldset id="example">
+		<legend>Example
+</legend>
+		<a  href=".tip">Later Event</a>
+		<div class=tip ><img src=show2.jpg>Don't be afraid to fantasize about earning six figures. Doctors and lawyers aren't the only professionals in the $100K ................</div>
+	</fieldset>
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

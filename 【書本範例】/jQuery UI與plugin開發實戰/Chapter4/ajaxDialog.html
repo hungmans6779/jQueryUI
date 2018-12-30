@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.dialog.css">
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.resizable.css">
+    <link rel="stylesheet" type="text/css" href="styles/ajaxDialogTheme.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI AJAX Dialog Example</title>
+  </head>
+  <body>
+    <div id="ajaxDialog" class="flora"></div>
+    <div class="content">
+      <h3>Section 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sagittis, turpis eu dapibus eleifend, tortor est porttitor nisl, ac ornare mi dolor et orci. Integer ultrices pede ut massa. In sit amet est sed purus bibendum luctus. Mauris ut quam. Phasellus consectetuer. Sed diam. Donec auctor, arcu id eleifend auctor, elit risus aliquet pede, elementum viverra diam odio lobortis ante. Nam viverra sagittis ligula. Quisque molestie nulla ac urna. Integer elementum, ligula ut semper eleifend, pede odio ullamcorper nisl, id faucibus diam turpis at mi. Ut in odio. Ut eu massa quis pede congue aliquam. Nulla bibendum sem sit amet urna. Sed magna. Nunc sodales, massa eget gravida elementum, nisl eros sagittis ante, at vestibulum augue orci non velit. Integer nec odio a mauris aliquam pretium. Proin tempor.</p>
+      <p class="helpLabel">For help about this section, click here:</p><span id="help1" class="helpIcon"></span>
+    </div>
+		<div class="content">
+			<h3>Section 2</h3>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec sagittis, turpis eu dapibus eleifend, tortor est porttitor nisl, ac ornare mi dolor et orci. Integer ultrices pede ut massa. In sit amet est sed purus bibendum luctus. Mauris ut quam. Phasellus consectetuer. Sed diam. Donec auctor, arcu id eleifend auctor, elit risus aliquet pede, elementum viverra diam odio lobortis ante. Nam viverra sagittis ligula. Quisque molestie nulla ac urna. Integer elementum, ligula ut semper eleifend, pede odio ullamcorper nisl, id faucibus diam turpis at mi. Ut in odio. Ut eu massa quis pede congue aliquam. Nulla bibendum sem sit amet urna. Sed magna. Nunc sodales, massa eget gravida elementum, nisl eros sagittis ante, at vestibulum augue orci non velit. Integer nec odio a mauris aliquam pretium. Proin tempor.</p>
+			<p class="helpLabel">For help about this section, click here:</p><span id="help2" class="helpIcon"></span>
+		</div>
+		<script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+		<script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+		<script type="text/javascript" src="../jqueryui/ui/ui.dialog.js"></script>
+		<script type="text/javascript" src="../jqueryui/ui/ui.resizable.js"></script>
+		<script type="text/javascript" src="../jqueryui/ui/ui.draggable.js"></script>
+		<script type="text/javascript">
+			//define function to be executed on document ready
+			$(function(){
+			
+			//control variable
+				var help = 0;
+			
+				//define doOk function
+				var doOk = function() {
+			
+				//close the dialog
+				$("#ajaxDialog").dialog("close");
+				
+				}		
+							
+				//define config object
+				var dialogOpts = {
+					title: "Help",
+					modal: true,
+					overlay: {
+						background: "url(img/modal.png) repeat", 
+					},
+					buttons: {
+						"Ok!": doOk
+					},
+					height: "110px",
+					autoOpen: false,
+					open: function() {
+					
+						//display correct dialog content
+						$("#ajaxDialog").load("helpContents" + (help == 1 ? 1 : 2) + ".html");
+					}
+				};
+				
+					//create the dialog
+				$("#ajaxDialog").dialog(dialogOpts);
+				
+				//define click handler for helpIcons
+				$(".helpIcon").click(function(event) {
+				
+					//which icons was clicked?
+					event.target.id == "help1" ? help = 1 : help = 2;
+					
+					//call open method
+					$("#ajaxDialog").dialog("open");
+				
+				});
+			});
+		</script>
+  </body>
+</html>

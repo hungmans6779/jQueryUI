@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.tabs.css">
+    <link rel="stylesheet" type="text/css" href="styles/tabsTheme2.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Tabs Example 12</title>
+  </head>
+  <body>
+    <div>
+      <ul id="myTabs">
+        <li><a href="#0"><span>Tab 1</span></a></li>
+        <li><a href="#1"><span>Tab 2</span></a></li>
+      </ul>
+      <div id="0">This is the content panel linked to the first tab, it is shown by default.</div>
+      <div id="1">This content is linked to the second tab and will be shown when its tab is clicked.</div>
+    </div>
+		<button id="destroy">Destroy the tabs!</button>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.tabs.js"></script>
+    <script type="text/javascript">
+			//define function to be executed on document ready
+			$(function(){
+					
+				//create the tabs
+				$("#myTabs").tabs();
+				
+				//add click handler for button
+				$("#destroy").click(function() {
+				
+					//destroy the tabs
+					$("#myTabs").tabs("destroy");				
+				});				
+			});
+		</script>
+  </body>
+</html>

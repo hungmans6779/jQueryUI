@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.datepicker.css">
+		<link rel="stylesheet" type="text/css" href="styles/intlPicker.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Date Picker Example 8</title>
+  </head>
+  <body>
+		<a id="uk" href="#" title="English"></a><a id="france" href="#" title="Français"></a>
+    <div class="row"><label>Enter a date: </label><input id="date"></div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.datepicker.js"></script>
+		<script type="text/javascript" src="../jqueryui/ui/i18n/ui.datepicker-fr.js"></script>
+    <script type="text/javascript">
+			//define function to be executed on document ready
+			$(function(){
+			
+				//flag variable
+				var locale = "en";
+					
+				$("a").click(function() {
+					(this.id != "france") ? locale = "en" : locale = "fr";
+				});
+								
+				function setLocale() {
+					return (locale == "fr") ? $.datepicker.regional['fr'] : $.datepicker.regional[''];
+				}
+				
+				//create the date picker
+				$("#date").datepicker({ beforeShow:setLocale });	
+			});
+		</script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+au0001.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/jquery.autocomplete.js"></script>
+<link rel="stylesheet" type="text/css" href="../themes/jquery.autocomplete.css" media="screen"/>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+ $(document).ready(function(){
+	var data = "高雄市 台北市 鳳山市 花蓮市 嘉義市 基隆市 苗栗市 南投市 馬公市 屏東市 台東市 台南市 台中市 桃園市 新竹市 彰化市 Kaohsiung Taipei Fengshan Hualien Chiayi Keelung Miaoli Nantou Makung Pingtung Taitung Tainan Taichung Taoyuan Hsinchu Changhua".split(" ");
+$("#example").autocomplete(data);
+  });
+
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+ <div class="primarycontent" id=0>
+	<h1>$(&quot;#example&quot;).autocomplete(data);</h1>
+	<b>$(&quot;#example&quot;).autocomplete(data)</b><br><br>
+
+City Name: <input id="example" /> (試著輸入"台" 或是 "T")
+
+</div>
+
+----------------------------------------------------------------------------------------------------
+
+

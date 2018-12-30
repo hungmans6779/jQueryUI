@@ -1,0 +1,270 @@
+rs00016.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.draggable.js"></script>
+<script type="text/javascript" src="../js/ui.resizable.js"></script>
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+ 
+   var mywidth,myheight;
+ // getSizeImg 主要是要求得目前圖形的寬與高的一個陣列
+
+ var getSizeImg = function(src) {
+        var timg = $('<img>').attr('src', src).css({ position: 'absolute', top: '-1000px', left: '-1000px' }).appendTo('body');
+        var size = [ timg.get(0).offsetWidth, timg.get(0).offsetHeight ];
+        
+        try { document.body.removeChild(timg[0]); }
+        catch(e) {};
+
+        return size;
+    };
+///// End of getSizeImg
+
+
+  $().ready(function(){
+
+	$('#resizeme_containment_div').resizable({//縮放時的作法
+	//$('#resizeme_containment_div').draggable({//拖曳的作法
+		containment: $('#resizeme_containment_div_wrapper'),//讓所有的縮放保持在這個DIV中
+			//以下使用 //開頭的option代表不適用於這個做法
+		//proxy: 'proxy',
+		//ghost: true,
+		//animate:true,
+		//transparent: true,
+		//aspectRatio: true,
+
+		handles: 'all',	
+		/*也可以使用knobHandles*/
+		/*knobHandles: true,*/   
+		autoHide: true,
+		minWidth: 100,
+		minHeight: 100,
+
+		resize: function(e, ui) {//當正在縮放時
+		//drag: function(e, ui) {//當正在拖曳時
+
+  		  this.style.backgroundPosition = '-' + (ui.position.left) + 'px -' + (ui.position.top) + 'px';//隨著縮放的top與left,改變小框內背景的顯示位置,用-leftpx 及 -toppx
+
+		  //寫入資訊
+		  $("#log-top").html(ui.position.top+"px");
+		  $("#log-left").html(ui.position.left+"px");
+		  $("#log-height").html(ui.size.height+"px");
+		  $("#log-width").html(ui.size.width+"px");
+
+  	    },
+		stop: function(e, ui) {//當縮放停止時
+
+  		  this.style.backgroundPosition = '-' + (ui.position.left) + 'px -' + (ui.position.top) + 'px';//固定最後縮放的top與left值，改變小框內背景的顯示位置,用-leftpx 及 -toppx
+  	    }
+	})
+
+	.draggable({//拖曳時的作法
+
+		cursor: 'move',
+
+		containment: $('#resizeme_containment_div_wrapper'),//讓所有的拖曳及縮放保持在這個DIV中
+
+		drag: function(e, ui) {//拖曳時
+
+			this.style.backgroundPosition = '-' + (ui.position.left) + 'px -' + (ui.position.top) + 'px';//隨著拖曳的top與left,改變小框內背景的顯示位置,用-leftpx 及 -toppx
+
+			//寫入資訊
+		  $("#log-top").html(ui.position.top+"px");
+		  $("#log-left").html(ui.position.left+"px");
+
+		}
+
+	});
+
+	//左列圖形被click時，初始化
+
+    	$('.thumbs').find("li a").click(function(e){
+    
+    	  //初始化小框
+		  $('#resizeme_containment_div').css('top', '0');
+    	  $('#resizeme_containment_div').css('left', '0');
+    	  $('#resizeme_containment_div').css('width', mywidth);
+    	  $('#resizeme_containment_div').css('height', myheight);
+          
+          var size = getSizeImg($(this).find("img").attr("src"));
+		//初始化三層結構的背景及位置
+    	  $('#resizeme_containment_wrap_image').css( { width: size[0], height: size[1], background: 'transparent url('+$(this).find("img").attr("src")+') no-repeat scroll 0%' } );
+          $('#resizeme_containment_div_wrapper').css( { width: size[0], height: size[1] } );
+    	  $('#resizeme_containment_div').css('background', 'transparent url('+$(this).find("img").attr("src")+') no-repeat scroll 0px 0px');
+
+          return false;
+
+    	});
+
+
+    	//降低僞背景圖的透明度
+		$('#resizeme_containment_wrap_image').css({ opacity: 0.5 });
+
+		//寫入資訊
+        $("#log-height").html($('#resizeme_containment_div').height()+"px");
+        $("#log-width").html($('#resizeme_containment_div').width()+"px");
+
+     });
+     
+     $(window).load(function(){
+        var size = getSizeImg("img/img001.jpg");
+		//三層結構
+		//<div id="resizeme_containment_div_wrapper">外框與範圍
+        //<div id="resizeme_containment_wrap_image"></div>----僞背景圖
+        //<div id="resizeme_containment_div"></div>-----真背景圖
+        //</div>
+		//
+		mywidth=$('#resizeme_containment_div').css('width');
+		myheight=$('#resizeme_containment_div').css('height');
+       	$('#resizeme_containment_div').css('background', 'transparent url(img/img001.jpg) no-repeat scroll 0px 0px');
+       	$('#resizeme_containment_div_wrapper').css( { width: size[0], height: size[1] } );
+        $('#resizeme_containment_wrap_image').css( { width: size[0], height: size[1], background: 'transparent url(img/img001.jpg) no-repeat scroll 0%' } );
+
+       });
+----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style type="text/css">
+
+/*************************************/
+/* Real-World CSS                    */
+
+@import "r.css";
+
+/*************************************/
+/* Demo CSS                          */
+
+#sidebar div {
+    text-align:center;
+}
+.thumb ul {
+    padding:10px 0 0 0;
+}
+.thumbs li {
+    margin:4px 20px;
+}
+.thumbs li a,
+.thumbs li a img{
+    height: 75px;
+    width: 75px;
+    display: block;
+}
+.thumbs li a:hover,
+.thumbs li a:hover img{
+    /*height: 130px;
+    width: 130px;*/
+	
+}
+.thumbs li a:hover {
+    border: 1px solid gray;
+}
+
+#break strong {
+    margin:0 0 4px 0;
+}
+#break ul {
+    padding:6px;
+}
+#break ul li {
+    padding:3px 0px;
+    font-style: italic;
+}
+#break ul li span {
+    font-style: normal;
+}
+
+.ui-resizable-knob {
+	border: 1px #fff dashed;
+}
+
+/**************************************/
+/* Cropper CSS   以下是相關的CSS(重要)*/
+
+#resizeme_containment_wrap_image {
+  position: relative;
+}
+#resizeme_containment_div {
+    position: absolute;
+    top:0px;
+    left:0px;
+    width: 150px;
+    height:150px;
+}
+
+#resizeme_containment_div_wrapper {
+   position: relative;
+   
+}
+/**************************************/
+
+#header
+{
+	background-color: #0022aa;
+	color: #fff;
+	padding: 30px 40px 30px 40px;
+}
+
+#header h1
+{
+	font-size: 30px;
+	padding:5px;
+
+}
+
+#header h2
+{
+	font-size: 14px;
+}
+
+#primarycontainer
+{
+	float: left;
+	margin-right: -200px;
+	width: 100%;
+}
+</style>
+
+	<div class="primarycontent" id=0>
+	<div id="sidebar">
+        <ul class="thumbs">
+
+            <li><a href="#" title="Open This Image"><img src="img/img001.jpg"/></a></li>
+            <li><a href="#" title="Open This Image"><img src="img/img002.jpg"/></a></li>
+            <li><a href="#" title="Open This Image"><img src="img/img003.jpg"/></a></li>
+            <li><a href="#" title="Open This Image"><img src="img/img004.jpg"/></a></li>
+            <li><a href="#" title="Open This Image"><img src="img/img005.jpg"/></a></li>
+			</ul>
+        </div>
+		</div>
+    <div id="main">
+        
+        <div id="content">
+                <div id="resizeme_containment_div_wrapper">
+                    <div id="resizeme_containment_wrap_image"></div>
+                    <div id="resizeme_containment_div"></div>
+                </div>
+        </div>
+
+        <div id="break">
+            <strong>Draggable/Resize Properties</strong>
+            <ul>
+                <li>width: <span id="log-width">0px</span></li>
+                <li>height: <span id="log-height">0px</span></li>
+                <li>top: <span id="log-top">0px</span></li>
+
+                <li>left: <span id="log-left">0px</span></li>
+            </ul>
+        </div>
+    </div>
+
+----------------------------------------------------------------------------------------------------
+
+

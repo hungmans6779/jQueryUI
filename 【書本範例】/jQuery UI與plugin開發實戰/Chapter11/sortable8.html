@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/sortableItems.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Sortable Example 8</title>
+  </head>
+  <body>
+	  <div id="container">
+			<p>Put these DJ's in order of your preference:</p>
+			<div id="sortables">
+				<div class="sortee">BT</div>
+				<div class="sortee">Sasha</div>
+				<div class="sortee">John Digweed</div>
+				<div class="sortee">Pete Tong</div>
+				<div class="unsortable">James Zabiela</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.sortable.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+			
+				//define config object
+				var sortOpts = {
+					items: ".sortee"
+				};
+					
+				//make specified element sortable
+				$("#sortables").sortable(sortOpts);
+			});
+		</script>
+  </body>
+</html>

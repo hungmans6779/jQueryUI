@@ -1,0 +1,43 @@
+st0001.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.sortable.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+ $(document).ready(function(){
+    $("#myList").sortable();
+  });
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+ <style>
+ul { list-style: none; }
+#myList li { 
+background: #727EA3; color: #FFF; width: 100px; margin: 5px; font-size: 10px; font-family: Arial; padding: 3px; 
+}
+</style>
+
+<div class="primarycontent" id=0>
+	<h1>$(&quot;#myList&quot;).sortable();</h1>
+	
+<ul id="myList">
+	    <li>Item 1</li>
+	    <li>Item 2</li>
+	    <li>Item 3</li>
+	    <li>Item 4</li>
+</ul>
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

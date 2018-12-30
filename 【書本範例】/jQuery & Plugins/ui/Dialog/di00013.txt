@@ -1,0 +1,71 @@
+di00013.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.dialog.js"></script>
+<script type="text/javascript" src="../js/ui.resizable.js"></script>
+<script type="text/javascript" src="../js/ui.draggable.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../themes/flora/flora.all.css" media="screen"/>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+$('#open').click(function(){
+$("#example").dialog({
+	dialogClass:'mydialog',
+		title:'My News',
+		width:200,
+		height:200,
+		position:[200,50],
+		show:'fast',
+		hide:'slow',
+		buttons: { 
+          "Cancel": function() { 
+            $(this).dialog("close"); 
+        } 
+    } ,
+		open:function(e,data){
+$('#open').html(data.options.title+' Open').attr({disabled:'true'});
+
+	},
+		dragStart:function(e,data){		
+		$('#loading').show();
+			},
+				dragStop:function(e,data){		
+		$('#loading').hide();
+			}
+});
+});
+  });
+----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+	
+	<style>
+.mydialog{
+background:black url('bg1.jpg');
+color:white;
+
+}
+
+</style>
+
+	<div class="primarycontent" id=0>
+	<h1>$(&quot;#example&quot;).dialog();</h1>
+	<b>dragStart:function() /  dragStop:function()</b><br>
+<div id="example" class=flora>Example<img src=a.gif id=loading style='display:none'></div><button id=open>Open</button>
+
+
+</div>
+
+----------------------------------------------------------------------------------------------------
+
+

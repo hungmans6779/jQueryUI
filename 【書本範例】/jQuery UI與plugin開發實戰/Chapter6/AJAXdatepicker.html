@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.datepicker.css">
+    <link rel="stylesheet" type="text/css" href="styles/ajaxDatepicker.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI AJAX Date Picker</title>
+  </head>
+  <body>
+    <div class="container">
+      <p>Use the date picker to request a consultation period</p>
+      <label>Book period:</label><input id="date">
+      <div class="key"></div><label class="keyLabel"> = Already Booked</label>
+    </div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.datepicker.js"></script>
+    <script type="text/javascript">
+			//define function to be executed on document ready
+			$(function(){
+				
+				//arrays to hold ajax dates
+				var months = [];
+				var days = [];
+				
+				//get pre-booked dates from server
+				function getDates() {		
+			 
+					$.getJSON("http://www.danwellman.co.uk/bookedDates.php?jsoncallback=?",
+					
+					function(data) {
+									
+						//process results
+						for (x = 0; x < data.dates.length; x++) {
+							//put results into arrays
+							months.push(data.dates[x].month);
+							days.push(data.dates[x].day);
+						}  
+					});
+				}		
+				getDates();
+								
+				//define config object
+				var pickerOpts = {
+					beforeShowDay: addDates,
+					minDate: +1
+				};
+				
+				//create date picker
+				$("#date").datepicker(pickerOpts);
+															
+				//add pre-booked dates to datepicker
+				function addDates(date){	
+					
+					//filter out weekends
+					if (date.getDay() == 0 || date.getDay() == 6) {
+						return [false, "weekend_class"];		  
+					}
+					
+					//check each day in arrays
+					for (x = 0; x < days.length; x++) {
+						//if date is same as current day...
+						if (date.getMonth() == months[x] - 1 && date.getDate() == days[x]) {
+							//make day unselectable
+							return [false, "preBooked_class"];
+						}
+					}
+					
+					//other dates are selectable
+					return [true, '']; 
+				}			
+			});
+		</script>
+  </body>
+</html>

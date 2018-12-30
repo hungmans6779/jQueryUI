@@ -1,0 +1,49 @@
+uie0005.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+    <script src="../../js/ui.effect.core.1.6.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+    $("#example").hover(function() {
+    $(this).animate({ backgroundColor:"#599ae3",borderLeftColor: "#599ae3",borderRightColor: "#599ae3",borderBottomColor:"#3c7bc1",borderTopColor:"#3c7bc1" }, 1500);
+},function() {
+    $(this).animate({ backgroundColor:"#4574a8",borderLeftColor: "#6c9cd2",borderRightColor: "#6c9cd2", borderBottomColor:"#4574a8",borderTopColor:"#4574a8"}, 1000);
+});
+
+  });
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+ #example { 
+    color: white;
+    background-color: #599ae3;
+    width: 400px; 
+    height: 300px;
+    margin: 10px; 
+	padding:10px;
+	border:10px solid #3168a6;
+  }
+  </style>
+		<div class="primarycontent" id=0>
+	<h1>Coloranimations</h1>
+<b>    $(this).animate({ backgroundColor:&quot;#599ae3&quot;,borderLeftColor: &quot;#599ae3&quot;,borderRightColor: &quot;#599ae3&quot;,borderBottomColor:&quot;#3c7bc1&quot;,borderTopColor:&quot;#3c7bc1&quot; }, 1500);
+</b><br><br>
+  <div id=example><img src=effect1.jpg></div>
+
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

@@ -1,0 +1,72 @@
+au00010.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/jquery.autocomplete.js"></script>
+<link rel="stylesheet" type="text/css" href="../themes/jquery.autocomplete.css" media="screen"/>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+	function myformat(row) {
+return row[0] + " [ENG: " + row[1] + "]";
+	}
+$("#example").autocomplete('/autocomplete_city.php',{
+formatItem:myformat
+
+});
+  });
+
+
+  ----------------------------------------------------------------------------------------------------
+autocomplete_city.php
+
+<?php
+
+$q = strtolower($_GET["q"]);
+if (!$q) return;
+$items = array(
+"高雄市"=>"Kaohsiung",
+	"台北市"=>"Taipei",
+	"鳳山市"=>"Fengshan",
+	"花蓮市"=>"Hualien",
+	"嘉義市"=>"Chiayi",
+	"基隆市"=>"Keelung",
+	"苗栗市"=>"Miaoli",
+	"南投市"=>"Nantou",
+	"馬公市"=>"Makung",
+	"屏東市"=>"Pingtung",
+	"台東市"=>"Taitung",
+	"台南市"=>"Tainan",
+	"台中市"=>"Taichung",
+	"桃園市"=>"Taoyuan",
+	"新竹市"=>"Hsinchu",
+	"彰化市"=>"Changhua"
+);
+
+foreach ($items as $key=>$value) {
+    if (strpos(strtolower($value), $q) !== false) {
+        echo "$key | $value\n";
+    }
+}
+
+?> 
+
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+ <div class="primarycontent" id=0>
+	<h1>$(&quot;#example&quot;).autocomplete(data);</h1>
+<b>$(&quot;#example&quot;).autocomplete(&quot;/autocomplete_city.php&quot;);</b><br><br>
+City Name: <input id="example" /> (試著輸入"T" 轉換成中文結果)
+
+</div>
+
+----------------------------------------------------------------------------------------------------
+
+

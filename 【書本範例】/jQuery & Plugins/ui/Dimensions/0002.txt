@@ -1,0 +1,78 @@
+0002.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+	$('button').click(function(){
+var myid=$(this).attr('id');
+var value;
+switch (myid)
+{
+case 'check1':value=$('#display').width();displayit(value);
+break;
+case 'check2':value=$('#display').height();displayit(value);
+break;
+case 'check3':value=$('#display').innerWidth();displayit(value);
+break;
+case 'check4':value=$('#display').innerHeight();displayit(value);
+break;
+case 'check5':value=$('#display').outerWidth();displayit(value);
+break;
+case 'check6':value=$('#display').outerHeight();displayit(value);
+break;
+case 'check7':value=$('#display').outerWidth({ margin: true });displayit(value);
+break;
+case 'check8':value=$('#display').outerHeight({ margin: true });displayit(value);
+break;
+
+}
+	});
+
+	function displayit(value){
+$('#display').html(value);
+
+	}
+
+  });
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+ #display { 
+    color: white;
+    background-color:#6062b0;
+    width: 150px; 
+    height: 70px;
+    margin: 10px; 
+	padding:10px;
+  }
+  </style>
+	<div class="primarycontent" id=0>
+	<h1>Dimensions</h1>
+	<b>#display width/height/innerWidth/innerHeight/outerWidth/outerHeight/+margin</b><br><br>
+  <div id=display>Information Here</div>
+  <button id=check1>#display width</button>
+  <button id=check2>#display height</button>
+  <button id=check3>#display innerWidth</button>
+  <button id=check4>#display innerHeight</button><br>
+  <button id=check5>#display outerWidth</button>
+  <button id=check6>#display outerHeight</button><br>
+  <button id=check7>#display outerWidth+margin</button>
+  <button id=check8>#display outerHeight+margin</button>
+
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

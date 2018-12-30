@@ -1,0 +1,12 @@
+.container { border:1px solid #3399cc; width:380px; padding:0 0 0 10px; height:250px; }
+p { font-family:Verdana; font-size:90%; margin-top:10px; }
+label { margin-right:98px; font-family:Verdana; font-size:80%; float:left; }
+.keyLabel { font-size:70%; }
+.key { width:16px; height:16px; background-color:#FF0000; float:left; margin-right:3px; }
+.divider { background:url(../img/date-picker/divider.gif) repeat-x; width:160px; clear:both; height:2px; position:relative; top:10px; }
+#date { width:183px; text-align:center; } 
+.ui-datepicker .weekend_class { background:url(../img/date-picker/weekendRepeat.gif) repeat-x; }
+.ui-datepicker .preBooked_class { color:#ffffff; background-color:#FF3300; }
+#confirmation { font-size:70%; width:150px; line-height:2em; position:relative; top:10px; }
+#request { margin:10px 0 0 10px; }
+#thanks { font-size:70%; margin-top:15px; }

@@ -1,0 +1,44 @@
+pb0004.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.1.6.js"></script>
+<script type="text/javascript" src="../js/ui.progressbar.js"></script>
+<link rel="stylesheet" type="text/css" href="../themes/ui.all.css" media="screen"/>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+   $("#example").progressbar({ 
+	   interval: 3000,
+		   increment:10,
+		   text:'Loading....',
+		   textClass:'loading'
+		   }); 
+   $("#example").progressbar("start");
+  });
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+   <style>
+.loading{
+color:red;
+}
+ </style>
+	<div class="primarycontent" id=0>
+	<h1>$(&quot;#example&quot;).progressbar(&quot;start&quot;);</h1>
+<b>textClass:&quot;loading&quot;</b><br><br>
+<div id="example"></div>
+
+</div>
+
+----------------------------------------------------------------------------------------------------
+
+

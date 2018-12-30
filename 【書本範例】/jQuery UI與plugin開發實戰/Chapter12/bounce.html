@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/bounce.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Bounce Effect</title>
+  </head>
+  <body>
+    <div id="menu">
+      <a href="#">Home</a><a href="#">About</a><a href="#">Help</a><a href="#">Products</a><a href="#">Services</a>
+    </div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.bounce.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+				
+				//bounce the link on mouseover
+				$("#menu a").mouseover(function() {
+					$(this).effect("bounce");
+				});
+			});
+		</script>
+  </body>
+</html>

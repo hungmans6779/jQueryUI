@@ -1,0 +1,37 @@
+sl0002.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.slider.js"></script>
+<link rel="stylesheet" type="text/css" href="../themes/flora/flora.all.css" media="screen"/>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+   $(document).ready(function(){
+    $("#example").slider({
+	animate:true	
+	});
+  });
+
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+ <div class="primarycontent" id=0>
+	<h1>$(&quot;#example&quot;).slider();</h1>
+<b>animate:true</b><br>
+<div id='example' class='ui-slider-1' style="margin:10px;">
+<div class='ui-slider-handle'></div>	
+</div>
+</div>
+
+----------------------------------------------------------------------------------------------------
+
+

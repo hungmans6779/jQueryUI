@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/fold.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Fold Effect</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="image"><img src="img/sunset1.jpg" alt="Sunset"></div>
+      <div class="ui"><a class="close" href="#"></a></div>
+    </div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.fold.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+				
+				//fold image when close clicked
+				$(".close").click(function() {
+					$(this).parent().parent().hide("fold", { size:"50" });
+				});	
+			});
+		</script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "XHTML1-s.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>jQuery Plugins--Lightbox--001</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="../../style.css" />
+  <script src="../js/jquery-1.2.6.pack.js"></script>
+  <link rel="stylesheet" type="text/css" href="jquery.lightbox-0.5.css" />
+
+    <script src="jquery.lightbox-0.5.pack.js"></script>
+<script type="text/javascript" src="../../main.js"></script>
+<script type="text/javascript" src="0001.js"></script>
+<style type="text/css">
+	/* jQuery lightBox plugin - Gallery style */
+	#gallery {
+		background-color: #444;
+		padding: 10px;
+		width: 520px;
+	}
+	#gallery ul { list-style: none; }
+	#gallery ul li { display: inline; }
+	#gallery ul img {
+		border: 5px solid #3e3e3e;
+		border-width: 5px 5px 20px;
+	}
+	#gallery ul a:hover img {
+		border: 5px solid #fff;
+		border-width: 5px 5px 20px;
+		color: #fff;
+	}
+	#gallery ul a:hover { color: #fff; }
+	</style>
+</head>
+  
+ 
+<body>
+<div id="header">
+
+	<h1>jQuery Plugins</h1>
+	<h2>Lightbox</h2>
+
+</div>
+
+<div id="menu">
+
+	<ul>
+
+		<!--
+				Each list item below represents a tab in the menu. Set the class
+				of any list item to 'active' to make it, well, active.
+		-->
+
+		<li id="first" class="active"><a href="#">Demo</a></li>
+		<li><a href="#">Code</a></li>
+		<li><a href="../index_plugins.html">Index</a></li>
+	
+		
+	</ul>
+
+	<div></div>
+
+</div>
+
+
+<div id="container">
+
+	<div id="primarycontainer">
+				<!-- Demo-->
+
+	<div class="primarycontent" id=0>
+	<h1>Lightbox</h1>
+	<b> $(&quot;#gallery a&quot;).lightBox();
+</b><br><br>
+  <div id="gallery">
+    <ul>
+        <li>
+            <a href="photos/image1.jpg" title="Images 1"><img src="photos/thumb_image1.jpg" width="72" height="72" alt="" /></a>
+        </li>
+        <li>
+            <a href="photos/image2.jpg" title="Images 2"><img src="photos/thumb_image2.jpg" width="72" height="72" alt="" /></a>
+        </li>
+        <li>
+            <a href="photos/image3.jpg" title="Images 3"><img src="photos/thumb_image3.jpg" width="72" height="72" alt="" /></a>
+        </li>
+        <li>
+            <a href="photos/image4.jpg" title="Images 4"><img src="photos/thumb_image4.jpg" width="72" height="72" alt="" /></a>
+        </li>
+        <li>
+            <a href="photos/image5.jpg" title="Images 5"><img src="photos/thumb_image5.jpg" width="72" height="72" alt="" /></a>
+        </li>
+    </ul>
+</div>
+
+</div>
+
+			<!--End Of Demo-->
+  
+		
+					<!--Code-->	
+<div class="primarycontent" id=1>
+	<p>html 內容<br>
+	(與運作有關的是&lt;head&gt;&lt;/head&gt;間引入的js檔案及&lt;!--Demo--&gt;與&lt;!--End Of Demo--&gt;之間的html)  </p>
+	<div id=vs></div>
+<br><br>			
+<p>0001.js 內容</p>
+  <textarea class=mycode>
+ $(document).ready(function(){
+ $('#gallery a').lightBox();
+  });
+</textarea><br>	
+		</div>
+	<!--End Of Code-->	
+		
+	</div>
+
+			<!-- Footer-->
+
+
+<div id="footer">
+	&copy; 2008 ezjquery. Created by <a href="http://www.ezjquery.com/">ezjquery</a> 
+
+</div>
+</body>
+</html>

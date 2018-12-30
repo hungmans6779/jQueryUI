@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/slide.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Slide Effect</title>
+  </head>
+  <body>
+    <div id="text"><a id="viewAll" href="#" title="View All">view all</a><span id="ellipsis">...</span>In Japanese history, a ninja is an elite warrior, highly trained in all aspects of combat martial arts, and specializing in a variety of unorthodox arts of war. The methods used by ninja included assassination, espionage, stealth, camouflage, unconventional warfare, specialized weapons, and a vast array of martial arts. Their exact origins are still unknown. Their roles may have included sabotage, espionage, scouting and assassination missions as a way to destabilize and cause social chaos in enemy territory or against an opposing ruler, perhaps in the service of their feudal rulers (daimyo, shogun), or an underground ninja organization waging guerilla warfare.<div id="image"></div></div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.slide.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+				
+			//slide div down
+			$("#viewAll").click(function() {
+					$("#image").toggle("slide", { direction:"down", easing:($("#viewAll").text() == "view all") ? "easeOutBounce" : "easeOutBack" }, 1000, function() {
+					
+						//change trigger text
+						($("#viewAll").text() == "view all") ? $("#viewAll").text("hide").css({color:"#000000"}) : $("#viewAll").text("view all").css({color:"#ffffff"}) ;
+						
+						//show or hide ellipsis
+						($("#ellipsis").css("display") == "block") ? $("#ellipsis").css({display:"none"}) : $("#ellipsis").css({display:"block"}) ;
+					});
+				});
+			});
+		</script>
+  </body>
+</html>

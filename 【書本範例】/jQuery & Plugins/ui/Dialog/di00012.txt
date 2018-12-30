@@ -1,0 +1,142 @@
+di00012.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.dialog.js"></script>
+<script type="text/javascript" src="../js/ui.resizable.js"></script>
+<script type="text/javascript" src="../js/ui.draggable.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../themes/flora/flora.all.css" media="screen"/>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+	$("#loading").ajaxSend(function() {
+		$(this).show();
+			});
+					
+$().ajaxComplete(function() {
+		$("#loading").hide();
+			});
+
+$('#open').click(function(){
+$("#example").dialog({
+	dialogClass:'mydialog',
+		title:'My News',
+		width:400,
+		height:500,
+		position:[200,50],
+		show:'fast',
+		hide:'slow',
+		buttons: { 
+          "Cancel": function() { 
+            $(this).dialog("close"); 
+        } 
+    } ,
+		open:function(e,data){
+$('#open').html(data.options.title+' Open').attr({disabled:'true'});
+
+	},
+		focus:function(e,data){
+		var rnumber=Math.floor(Math.random()*2)
+			var news=new Array();
+		news[0]='demo.html';
+		news[1]='demo1.html';
+		mypage=news[rnumber];
+
+$.ajax({
+			type: "get",
+			url: mypage,
+			cache:false,
+			error: function() {
+			alert(" Try Again!!");
+							},
+								success: function(data){							
+					$('#example').html(data);
+					
+					return false;
+							}
+		});
+	}
+});
+});
+  });
+----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+	
+	<style>
+.mydialog{
+background:black url('bg1.jpg');
+color:white;
+
+}
+
+</style>
+
+<div class="primarycontent" id=0>
+	<h1>$(&quot;#example&quot;).dialog();</h1>
+	<b>focus:function() </b><br>
+
+<div id="example" class=flora>Example<img src=a.gif id=loading style='display:none'></div><button id=open>Open</button>
+
+
+</div>
+---------------------------------------------------------------------------------------------------
+demo.html
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>My Class Page </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <style>
+  img{
+float:left;
+margin:10px;
+
+  }
+  </style>
+ </head>
+
+ <body>
+  <img src=demo1.jpg>More than a few people raised their eyebrows upon hearing of Janet Jackson and her recent health drama: Her planned show in Montreal Monday night was canceled after the singer/dancer/elaborate dresser became "suddenly ill" and was taken to the hospital and released two hours later. A spokesperson for Ms. Jackson would not elaborate on her unexpected ailment, only mentioning that she had been "ill" and was "recuperating" after her release. Shows set later in the week, including ones in Boston and Philadelphia, were also canceled--undoubtedly sending pre-med students in both cities scurrying to their textbooks to discover whether Extremis Minimus Ticketsalus is an actual disease.  All she needs now is to leave her record label after her most recent album flopped and strike out on her own! Oh no, wait--that happened last week.
+ </body>
+</html>
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
+demo1.html
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>My Class Page </title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <style>
+  img{
+float:right;
+margin:10px;
+
+  }
+  </style>
+ </head>
+
+ <body>
+  <img src=demo2.jpg>While we're speaking of prestigious female recording artists: Paris Hilton, singer, actress, and perhaps the most important human of this century, has released a new single entitled "My BFF"--which will coincide with the debut of her new MTV reality show, intriguingly titled Paris Hilton's My New BFF. In it, 16 women and 2 gay men will compete for the privilege of actually becoming Paris's "best friend forever" who, word has it, "is hot, loyal and has the energy to keep up with Hilton's hectic lifestyle." Extremely large mirrors need not apply!
+ </body>
+</html>
+
+
+----------------------------------------------------------------------------------------------------
+
+

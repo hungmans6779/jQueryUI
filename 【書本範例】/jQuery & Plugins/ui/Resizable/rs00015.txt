@@ -1,0 +1,55 @@
+rs00015.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.resizable.js"></script>
+<link rel="stylesheet" type="text/css" href="../themes/flora/flora.resizable.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="../themes/flora/functional_demos.css" media="screen"/>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+   $("#rs").resizable({
+	   containment: '#area',
+	 handles: "all",		
+    helper: "proxy" 
+ }); 
+   
+});
+----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+.resizable {
+/*position: relative;;*/
+	width: 100px; height: 100px;
+	border: 0px solid #000;
+	padding: 10px;
+	font-size: 12px;
+}
+.area {
+position: relative;
+	width: 300px; height: 300px;
+	border: 1px solid #000;
+	/*padding: 10px;*/
+	font-size: 12px;
+}
+</style>
+
+	<div class="primarycontent" id=0>
+	<h1>$(&quot;#rs&quot;).resizable();</h1>
+	<b>handles: &quot;all&quot; / containment   </b><br>
+	
+<div id="area" class=area><div id="rs" class="resizable">縮放我.但不超出界線</div></div><br>
+</div>
+
+----------------------------------------------------------------------------------------------------
+
+

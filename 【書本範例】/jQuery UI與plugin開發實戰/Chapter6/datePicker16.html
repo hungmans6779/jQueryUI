@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="../jqueryui/themes/flora/flora.datepicker.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Date Picker Example 16</title>
+  </head>
+  <body>
+    <h2>Would you like to select a date using the date picker?</h2>
+    <label for="yes">Yes</label><input type="radio" name="pickerGroup" id="yes"><label for="notNow">Not now</label><input type="radio" name="pickerGroup" id="notNow"><label for="notEver">Not ever</label><input type="radio" name="pickerGroup" id="notEver"><br>
+    <label>Enter a date: </label><input id="date">
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.datepicker.js"></script>
+    <script type="text/javascript">
+			//define function to be executed on document ready
+			$(function(){
+			
+				//define config object
+				var pickerOpts = {
+					onSelect: handleSelect,
+					beforeShow: handleShow
+				};
+				
+				//create basic date picker
+				$("#date").datepicker(pickerOpts);
+				
+				//add click handler for yes radio
+				$("#yes").click(function(){
+				
+					//enable date picker and input if they are currently disabled
+					($("#date").datepicker("isDisabled") == true) ? $("#date").datepicker("enable") : null;
+				});
+				
+				//add click handler for not now radio
+				$("#notNow").click(function(){
+				
+					//disable date picker and input if they are not currently disabled
+					($("#date").datepicker("isDisabled") == false) ? $("#date").datepicker("disable") : null;
+				});
+				
+				//add click handler for not ever radio
+				$("#notEver").click(function() {
+				
+					//destroy date picker
+					$("#date").datepicker("destroy");
+					
+					(!$("#date").attr("disabled")) ? null : $("#date").removeAttr("disabled") ;
+					
+					//add prompt text after input
+					$("<p>").text("You will need to enter a date manually").insertAfter("#date");
+				});
+				
+				//define handleSelect function		
+				function handleSelect(date) {
+					
+					//add prompt text after input
+					$("<p>").text("You chose " + date + " is this correct?").attr("id", "prompt").insertAfter("#date");
+					
+					//add buttons
+					$("<button>").text("Yes").attr("id", "btnYes").insertAfter("#prompt");
+					$("<button>").text("No").attr("id", "btnNo").insertAfter("#btnYes");
+					
+					//add click handler for yes button
+					$("#btnYes").click(function() {
+						
+					//change prompt text
+					$("#prompt").text("Thanks for choosing a date!");
+					$("button").remove();
+					});
+					
+					//add click handler for no button
+					$("#btnNo").click(function() {
+					
+						//reopen date picker
+					$("#date").datepicker("show", "fast");
+					$("#prompt").remove();
+					$("button").remove();
+					});
+				}
+				
+				//define handleShow function
+				function handleShow() {
+				
+					//add a close rollover
+					$("<a>").text("rollover to close date picker").attr({
+						id: "rollClose", 
+						href: "#" 
+					}).css({ 
+						marginTop: "200px",
+						display: "block"
+					}).insertAfter("#date");
+					
+					//add rollover handler
+					$("#rollClose").mouseover(function() {
+					
+						//close date picker
+					$("#date").datepicker("hide", "fast");
+					
+					//remove rollover link
+					$("#rollClose").remove();
+					});		
+				}
+			});
+		</script>
+  </body>
+</html>

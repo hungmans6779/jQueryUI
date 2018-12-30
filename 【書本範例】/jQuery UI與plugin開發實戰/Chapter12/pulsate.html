@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/pulsate.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Pulsate Effect</title>
+  </head>
+  <body>
+    <div id="countdown">15</div>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.pulsate.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+				
+				//set countdown start
+				var age = 15;
+			
+				//global adjustAge function
+				adjustAge = function() {
+			
+					//change text of countdown display
+					$("#countdown").text(age - 1);
+					
+					//start pulsating when 10 is reached
+					(age < 11) ? $("#countdown").css({backgroundColor:"#ff0000"}).effect("pulsate", { times:1 }) : null ; 
+					
+					//clearInterval when 0 displayed
+					(age == 1) ? clearInterval(timer) : age -= 1;
+				}
+			
+				//start counting down
+				timer = setInterval("adjustAge()", 1000);
+			});
+		</script>
+  </body>
+</html>

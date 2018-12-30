@@ -1,0 +1,61 @@
+dp00030.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.core.js"></script>
+<script type="text/javascript" src="../js/ui.datepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="../themes/flora/flora.all.css" media="screen"/>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+    $('#example').datepicker({
+	rangeSelect: true,
+		showStatus: true,
+		rangeSelect: true, 
+		rangeSeparator: '- ',
+		dateFormat: 'mm/dd/yy',
+				showOn: 'both',
+			buttonImage: 'calendar.gif',
+		buttonText: 'Select',
+		buttonImageOnly: true,
+		constrainInput: true,
+		onClose: function() { 
+		$('#display').html($('#example').val());
+  } 
+	});
+  });
+  
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+  <style>
+ #example{
+width:200px;
+font-size:12px;
+font-family:Arial;
+}
+#display{
+background:red;
+color:white;
+font:10px Arail;
+font-weight:bold;
+}
+</style>
+<div class="primarycontent" id=0>
+	<h1>$(&quot;#example&quot;).datepicker();</h1>
+<br>
+		Date Info:<span id=display></span><br>
+<input type="text" id="example" value="按我選擇日期" />
+
+
+</div>
+----------------------------------------------------------------------------------------------------
+
+

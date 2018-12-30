@@ -1,0 +1,77 @@
+0002.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="tablesorter.css" />
+  <script src="jquery.tablesorter.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function() {
+	$('#example').tableSorter({
+		sortColumn:1	// 數字或是字串均可以(指的是欄位的名稱(大小寫無關)或是第幾個 (由0開始) )
+
+	});
+});
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<div class="primarycontent" id=0>
+	<h1>Tablesorter</h1>
+	<b> $(&quot;#example&quot;).tableSorter();
+</b><br><br>
+ <table id="example">
+	<thead>
+		<tr>
+			<th>Name</th>
+
+			<th>Age</th>
+			<th>Total purchase</th>
+			<th>Email</th>
+			<th>Date</th>
+		</tr>
+	</thead>
+	<tbody>
+
+		<tr>
+			<td>Peter</td>
+			<td>28</td>
+			<td>$9.99</td>
+			<td>peter.parker@gmail.com</td>
+			<td>Jul 6, 2006 8:14 AM</td>
+
+		</tr>
+		<tr>
+			<td>John</td>
+			<td>32</td>
+			<td>$19.99</td>
+			<td>john.doe@gmail.com</td>
+			<td>Dec 10, 2002 5:14 AM</td>
+
+		</tr>
+		<tr>
+			<td>Clark</td>
+			<td>18</td>
+			<td>$15.89</td>
+			<td>c.kent@gmail.com</td>
+			<td>Jan 12, 2003 11:14 AM</td>
+
+		</tr>
+	</tbody>
+</table>
+
+
+
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

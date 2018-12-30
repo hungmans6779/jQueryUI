@@ -1,0 +1,16 @@
+body { font-family:Arial, Helvetica, sans-serif; }
+.page { width:960px; margin:auto; text-align:center; position:relative; }
+#sortGrid { width:960px; padding:20px 0; }
+a#restore { font-family:Arial, Helvetica, sans-serif; position:absolute; right:44px; font-size:10px; color:#000000; }
+.col { float:left; width:312px; min-height:700px; height:auto !important; height:700px; }
+.box { width:290px; margin:0 0 10px 10px; position:relative; border:1px solid #999999; text-align:left; padding:25px 5px 5px 5px; font-size:10px; background-color:#ffffff; }
+.title { width:295px; height:20px; position:absolute; top:0; left:0; padding:3px 0 0 5px; font-size:12px; font-weight:bold; cursor:move; background:url(../img/jPage/titleBG.gif) repeat-x; }
+.close { width:15px; height:15px; position:absolute; right:3px; top:3px; background:url(../img/jPage/close.gif) no-repeat; cursor:pointer; }
+#hidden { display:none; }
+.clear { clear:both; }
+
+.box a { text-decoration:none; font-weight:bold; color:#3300ff; }
+#col2_youtube a { padding-left:0px; }
+#video { overflow:hidden; }
+.box p { margin:0 0 5px 0; padding:0; }
+.box img { border:1px solid #000; margin:5px auto 2px auto; }

@@ -1,0 +1,76 @@
+0009.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+  <script src="jquery.blockUI.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+ $(document).ready(function() { 
+     $('#display').load('test1.html');
+        $('#b1').click(function() { 
+          $('#display').block({ message: '<div class=myblock><img src=loading.gif>Loading.....</div>'	});
+		   setTimeout(noblock, 2000);
+        }); 
+ 
+        $('#b2').click(function() { 
+              $('#display').block({ message:'<div class=myblock><img src=loading.gif>Loading.....</div>'	});
+		   setTimeout(noblock1, 2000);
+		});
+		function noblock(){
+$('#display').unblock().load('test2.html'); 
+		}
+       function noblock1(){
+$('#display').unblock().load('test1.html'); 
+		}
+    }); 
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+	<style>
+#display{
+width:700px;
+height:150px;
+border:5px solid gray;
+padding:10px;
+}
+#display img{
+float:left;
+margin:5px;
+
+}
+.myblock
+{
+background:#e8daa9;
+font:14px Arial;
+padding:20px;
+}
+.myblock img{
+margin-right:30px;
+}
+</style>
+<div class="primarycontent" id=0>
+	<h1>Block</h1>
+	<b> $(&quot;#display&quot;).block()
+
+
+</b><br><br>
+<button id=b1>Change To Page 2</button><button id=b2>Change To Page 1</button>
+<div id=display></div>
+
+
+
+
+</div>
+
+
+----------------------------------------------------------------------------------------------------
+
+

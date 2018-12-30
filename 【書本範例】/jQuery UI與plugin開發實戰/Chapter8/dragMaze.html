@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/dragMaze.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Draggable Maze Game</title>
+  </head>
+  <body>
+		<div id="maze">
+		<div id="drag"></div>
+			<div id="start"></div>
+			<div id="end"></div>
+		</div>		
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.core.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/ui.draggable.js"></script>
+		<script type="text/javascript" src="../jqueryui/ui/ui.droppable.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+			
+				//add map walls
+				for (var x = 1; x < 47; x++) {
+					$("<div>").attr({
+					  id: "a" + x,
+						class: "wall"
+					}).appendTo("#maze");
+				}
+	  		
+				//define drag config object
+				var dragOpts = {
+					containment: "#maze"
+				};
+								
+				//make the specified element draggable
+				$("#drag").draggable(dragOpts);
+				
+				//define drop config object
+				var dropOpts = {
+					accept: "#drag",
+					tolerance: "touch",
+					over: function(e, ui) {
+						
+						//remove drag object from page
+						$("#drag").draggable("destroy").remove();
+						
+						//create new draggable at start
+						$("<div>").attr("id", "drag").css({ left:0, top:0 }).appendTo("#maze");
+						
+						//make the new element draggable
+						$("#drag").draggable(dragOpts);
+					}
+				};
+				
+				//define end config object
+				var endOpts = {
+					accept: "#drag",
+					over: function(e, ui) {
+					
+						//remove drag object from page
+						$("#drag").draggable("destroy").remove();
+						
+						//congratulations
+						alert("Wooot, you did it!");
+					}
+				};
+				
+				//make specified elements droppable
+				$(".wall").droppable(dropOpts);
+				
+				//make end droppable
+				$("#end").droppable(endOpts);
+				
+	  	});
+		</script>
+  </body>
+</html>

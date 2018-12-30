@@ -1,0 +1,13 @@
+.flora .ui-dialog, .flora.ui-dialog { background-color:#99ccff; }
+.flora .ui-dialog .ui-dialog-titlebar, .flora.ui-dialog .ui-dialog-titlebar { background:url(../img/dialog/my-title.gif) repeat-x; background-color:#003399; }
+.flora .ui-dialog .ui-dialog-titlebar-close, .flora.ui-dialog .ui-dialog-titlebar-close { background:url(../img/dialog/my-title-close.gif) no-repeat; }
+.flora .ui-dialog .ui-dialog-titlebar-close-hover, .flora.ui-dialog .ui-dialog-titlebar-close-hover { background:url(../img/dialog/my-title-close-hover.gif) no-repeat; }
+.flora .ui-dialog .ui-resizable-n, .flora.ui-dialog .ui-resizable-n { background:url(../img/dialog/my-n.gif) repeat center top; }
+.flora .ui-dialog .ui-resizable-s, .flora.ui-dialog .ui-resizable-s { background:url(../img/dialog/my-s.gif) repeat center top; }
+.flora .ui-dialog .ui-resizable-e, .flora.ui-dialog .ui-resizable-e { background:url(../img/dialog/my-e.gif) repeat right center; }
+.flora .ui-dialog .ui-resizable-w, .flora.ui-dialog .ui-resizable-w { background:url(../img/dialog/my-w.gif) repeat left center; }
+.flora .ui-dialog .ui-resizable-ne, .flora.ui-dialog .ui-resizable-ne { background:url(../img/dialog/my-ne.gif) repeat; }
+.flora .ui-dialog .ui-resizable-se, .flora.ui-dialog .ui-resizable-se { background:url(../img/dialog/my-se.gif) repeat; }
+.flora .ui-dialog .ui-resizable-sw, .flora.ui-dialog .ui-resizable-sw { background:url(../img/dialog/my-sw.gif) repeat; }
+.flora .ui-dialog .ui-resizable-nw, .flora.ui-dialog .ui-resizable-nw { background:url(../img/dialog/my-nw.gif) repeat; }
+

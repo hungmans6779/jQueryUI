@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles/classAnim.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>jQuery UI Class Animation Example</title>
+  </head>
+  <body>
+    <div><label>Name: </label><input type="text"></div>
+    <div><label>Age: </label><input type="text"></div>
+    <div><label>Email: </label><input type="text"></div>
+    <button id="submit">Submit</button>
+    <script type="text/javascript" src="../jqueryui/jquery-1.2.6.js"></script>
+    <script type="text/javascript" src="../jqueryui/ui/effects.core.js"></script>
+    <script type="text/javascript">
+			//function to execute when doc ready
+			$(function() {
+			  
+				//add click handler for button
+				$("#submit").click(function() {
+			
+					//check fields
+					$("input").each(function() {
+						
+						//if input already has error class
+						if ($(this).hasClass("error")) {
+							
+							//do nothing if empty or add pass class 
+							($(this).val().length == 0) ? null : $(this).switchClass("error", "pass", 2000);
+							
+						//if input already has pass class
+						} else if ($(this).hasClass("pass")) {
+						
+							//do nothing if not empty or add error class 
+							($(this).val().length != 0) ? null : $(this).switchClass("pass", "error", 2000);
+							
+						//if has neither class
+						} else {
+						
+							//add error class if empty, pass if not
+							($(this).val().length == 0) ? $(this).addClass("error", 2000) : $(this).addClass("pass", 2000);
+						}
+					});
+				});
+			});
+		</script>
+  </body>
+</html>

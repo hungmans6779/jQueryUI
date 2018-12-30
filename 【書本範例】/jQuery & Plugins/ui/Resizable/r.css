@@ -1,0 +1,90 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+border:0pt none;
+font-family:inherit;
+font-size:100%;
+margin:0pt;
+outline-color:invert;
+outline-style:none;
+outline-width:0pt;
+padding:0pt;
+vertical-align:baseline;
+}
+*:focus {
+outline-color:invert;
+outline-style:none;
+outline-width:0pt;
+}
+body {
+background:white none repeat scroll 0%;
+color:black;
+line-height:1;
+}
+ol, ul {
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+}
+table {
+border-collapse:separate;
+border-spacing:0pt;
+}
+caption, th, td {
+font-weight:normal;
+text-align:left;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+content:"";
+}
+blockquote, q {
+quotes:"" "";
+}
+.clear {
+clear:both;
+}
+body, html {
+/*font-family:sans-serif;*/
+font-family: verdana, helvetica, sans-serif;
+font-size:13px;
+height:100%;
+margin:0px;
+padding:0px;
+}
+body, html {
+font-family: verdana, helvetica, sans-serif;
+font-size:13px;
+height:100%;
+}
+#main {
+/*background:#E8EEF7 none repeat scroll 0%;*/
+background:#112E5B none repeat scroll 0%;
+border-bottom:1px solid #CCCCCC;
+border-left:1px solid #CCCCCC;
+height:auto;
+margin:0pt 0pt 0pt 200px;
+
+}
+
+#header
+{
+	background-color: #0022aa;
+	color: #fff;
+	padding: 30px 40px 30px 40px;
+}
+#main #content {
+background:#FFFFFF none repeat scroll 0%;
+padding:10px;
+}
+#main #break {
+border-top:1px solid #CCCCCC;
+padding:10px;
+color:gold;
+}
+#sidebar {
+border-right:1px solid #CCCCCC;
+float:left;
+height:100%;
+width:200px;
+}
+#sidebar div {
+padding:10px;
+}

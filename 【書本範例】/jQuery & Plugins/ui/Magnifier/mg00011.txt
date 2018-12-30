@@ -1,0 +1,95 @@
+mg00011.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="../js/ui.magnifier.1.6.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+   $("#example").magnifier({
+	   zIndex:100,
+	overlap:true,
+click:function(e,ui){
+		   $('#example img').css({border:"none"});
+var myImage = new Image();
+	myImage.src=$(ui.current).attr('src');
+		mywidth=myImage.width;
+		myheight=myImage.height;
+		var diff1=parseInt(($(window).height( )-myheight)/2);
+				var diff2=parseInt(($(window).width( )-mywidth)/2);
+
+		$('.cover').slideDown('slow',function(){
+		$('.show').fadeIn('slow',function(){
+						$('.show').html('<img src='+myImage.src+' width='+mywidth+' height='+myheight+'>').animate({
+							top:diff1,
+								left:diff2,
+								width:mywidth+'px',
+								height:myheight+'px'},1500);
+							});	
+
+					});
+
+
+		}
+	}); 
+	$('.show').click(function(){
+$(this).fadeOut().empty();
+$('.cover').slideUp();
+	});
+	
+  });
+  
+ ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+	<style>
+#example img{
+position:relative;
+width:100px;
+}
+.cover{
+position:absolute;
+display:none;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+z-index:200;
+opacity:0.4;
+filter:alpha(opacity=40);
+}
+.show{
+position:absolute;
+display:none;
+top:200px;
+left:300px;
+width:50px;
+height:50px;
+margin:0 auto;
+background:gray;
+border:10px solid gray;
+z-index:201;
+
+}
+ </style>
+	<div class="primarycontent" id=0>
+	<h1>$(&quot;#example&quot;).magnifier();</h1>
+<b>	click:function(e,ui)
+   </b><br><br>
+<div id="example"><img src=c1.jpg><img src=c2.jpg><img src=c3.jpg><img src=c4.jpg><img src=c5.jpg class=demo><img src=c6.jpg><img src=c11.jpg></div>
+</div>
+<div class=cover></div><div class=show></div>
+
+
+
+----------------------------------------------------------------------------------------------------
+
+

@@ -1,0 +1,56 @@
+uie00010.txt
+
+基礎 JS 引入
+----------------------------------------------------------------------------------------------------
+  <script src="../../js/jquery-1.2.6.pack.js"></script>
+    <script src="../../js/ui.effect.core.1.6.js"></script>
+
+----------------------------------------------------------------------------------------------------
+
+JS 啟動
+----------------------------------------------------------------------------------------------------
+$(document).ready(function(){
+    $("#example").click(function() {
+		$(this).removeClass('class1');
+    $(this).switchClass('class0','class1', 3000);
+});
+  });
+
+  ----------------------------------------------------------------------------------------------------
+
+
+
+HTML & CSS
+----------------------------------------------------------------------------------------------------
+<style>
+ .class0 { 
+	background:url(effect2.jpg)  bottom right;
+    width: 400px; 
+    height: 266px;
+    margin: 10px; 
+	border:1px solid gray;
+	
+  }
+  .class1{
+  background:url(effect2.jpg) bottom right ;
+    width: 900px; 
+    height: 266px;
+    margin: 10px; 
+	border:1px solid gray;
+  }
+  </style>
+
+					<div class="primarycontent" id=0>
+	<h1>ClassTransitions</h1>
+<b>    $(this).switchClass(&quot;class0&quot;,&quot;class1&quot;, 3000);
+</b><br><br>
+  <div id=example class=class0 ></div>
+
+</div>
+
+
+
+
+----------------------------------------------------------------------------------------------------
+
+
